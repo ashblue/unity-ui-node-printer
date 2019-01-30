@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
     public interface INode {
-        List<INode> Children { get; }
         string Name { get; set; }
-        Action<bool> OnClick { get; set; }
+        Sprite Graphic { get; set; }
+        List<INode> Children { get; }
+        Action OnClick { get; set; }
 
         void AddChild (INode node);
     }

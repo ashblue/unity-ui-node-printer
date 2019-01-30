@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraphBuilder {
@@ -8,10 +9,11 @@ namespace CleverCrow.UiNodeBuilder {
             return _graph;
         }
 
-        public NodeGraphBuilder Add (string name, Action<bool> onClick) {
+        public NodeGraphBuilder Add (string name, Sprite graphic, Action onClick) {
             _graph.AddNode(new Node {
                 Name = name,
-                OnClick = onClick
+                Graphic = graphic,
+                OnClick = onClick,
             });
 
             return this;
