@@ -10,12 +10,20 @@ namespace CleverCrow.UiNodeBuilder {
         private Image _graphic;
 
         [SerializeField] 
+        private Image _purchaseGraphic;
+
+        [SerializeField] 
         private Button _button;
         
-        public void Setup (INode child) {
-            _name.text = child.Name;
-            _graphic.sprite = child.Graphic;
-            _button.onClick.AddListener(() => child.OnClick());
+        public void Setup (INode node) {
+            _name.text = node.Name;
+            _graphic.sprite = node.Graphic;
+            _button.onClick.AddListener(() => node.OnClick(node));
+            _purchaseGraphic.gameObject.SetActive(node.Purchased);
+
+            node.OnPurchaseChange.AddListener(() => {
+                _purchaseGraphic.gameObject.SetActive(node.Purchased);
+            });
         }
     }
 }

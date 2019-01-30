@@ -19,7 +19,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             public void It_should_add_a_node_with_the_passed_name () {
                 var nodeName = "Node Name";
                 var graph = new NodeGraphBuilder()
-                    .Add(nodeName, _graphic, () => { })
+                    .Add(nodeName, _graphic, (node) => { })
                     .Build();
                 
                 Assert.AreEqual(graph.Root.Children[0].Name, nodeName);
@@ -28,7 +28,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             [Test]
             public void It_should_add_a_node_with_the_passed_graphic () {
                 var graph = new NodeGraphBuilder()
-                    .Add("Lorem Ipsum", _graphic, () => { })
+                    .Add("Lorem Ipsum", _graphic, (node) => { })
                     .Build();
                 
                 Assert.AreEqual(graph.Root.Children[0].Graphic, _graphic);
@@ -36,7 +36,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
 
             [Test]
             public void It_should_add_a_node_with_the_passed_callback () {
-                var callback = new Action(() => { });
+                var callback = new Action<INode>((node) => { });
                 var graph = new NodeGraphBuilder()
                     .Add("Example", _graphic, callback)
                     .Build();

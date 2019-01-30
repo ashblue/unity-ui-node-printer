@@ -9,7 +9,7 @@ namespace CleverCrow.UiNodeBuilder {
             return _graph;
         }
 
-        public NodeGraphBuilder Add (string name, Sprite graphic, Action onClick) {
+        public NodeGraphBuilder Add (string name, Sprite graphic, Action<INode> onClick) {
             _graph.AddNode(new Node {
                 Name = name,
                 Graphic = graphic,
