@@ -30,6 +30,14 @@ namespace CleverCrow.UiNodeBuilder {
             node.OnDisable.AddListener(() => {
                 _button.interactable = false;
             });
+
+            node.OnEnable.AddListener(() => {
+                _button.interactable = true;
+            });
+
+            if (!node.Enabled) {
+                node.Disable();
+            }
         }
     }
 }
