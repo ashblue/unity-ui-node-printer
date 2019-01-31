@@ -18,13 +18,14 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Add (string name, Sprite graphic) {
-            _pointer.Push(new Node {
+            var node = new Node {
                 Name = name,
                 Graphic = graphic,
-            });
+            };
             
-            _graph.AddNode(Pointer.Peek());
-            _graph.Nodes.Add(Pointer.Peek());
+            _graph.AddNode(Pointer.Peek(), node);
+            _graph.Nodes.Add(node);
+            _pointer.Push(node);
 
             return this;
         }

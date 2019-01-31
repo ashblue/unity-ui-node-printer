@@ -17,7 +17,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 var graph = new NodeGraph();
                 var node = Substitute.For<INode>();
                 
-                graph.AddNode(node);
+                graph.AddNode(graph.Root, node);
 
                 Assert.IsTrue(graph.Root.Children.Contains(node));
             }

@@ -42,6 +42,16 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 
                 Assert.IsTrue(graph.Nodes.Contains(graph.Root.Children[0]));
             }
+
+            [Test]
+            public void It_should_add_a_child_if_Add_is_called_again () {
+                var graph = new NodeGraphBuilder()
+                    .Add("A", _graphic)
+                    .Add("B", _graphic)
+                    .Build();
+                
+                Assert.AreEqual(graph.Root.Children[0].Children[0].Name, "B");
+            }
         }
 
         public class OnClickNodeMethod : NodeGraphBuilderTest {
