@@ -12,9 +12,15 @@ namespace CleverCrow.UiNodeBuilder {
         
         public void Build (NodeGraph graph) {
             foreach (var child in graph.Root.Children) {
-                var node = Instantiate(_nodePrintPrefab, _nodeOutput);
-                node.Setup(child);
+                RecursivePrint(child, _nodeOutput);
             }
+        }
+
+        private void RecursivePrint (INode data, RectTransform output) {
+            var node = Instantiate(_nodePrintPrefab, output);
+            node.Setup(data);
+            
+            data.Children.ForEach(child => RecursivePrint(child, node.childOutput));
         }
     }
 }

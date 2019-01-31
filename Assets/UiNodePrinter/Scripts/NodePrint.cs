@@ -14,7 +14,9 @@ namespace CleverCrow.UiNodeBuilder {
 
         [SerializeField] 
         private Button _button;
-        
+
+        public RectTransform childOutput;
+
         public void Setup (INode node) {
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;

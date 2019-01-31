@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nodeOutput: {fileID: 1951140248}
-  _nodePrintPrefab: {fileID: 1096817726930349286, guid: 9768d5f91f175467789132a3b26d9d48,
+  _nodePrintPrefab: {fileID: 5344406961360026951, guid: 9768d5f91f175467789132a3b26d9d48,
     type: 3}
 --- !u!114 &1444955940
 MonoBehaviour:
@@ -678,5 +678,5 @@ MonoBehaviour:
   m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
