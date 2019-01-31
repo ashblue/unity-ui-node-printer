@@ -24,6 +24,10 @@ namespace CleverCrow.UiNodeBuilder {
             node.OnPurchaseChange.AddListener(() => {
                 _purchaseGraphic.gameObject.SetActive(node.Purchased);
             });
+            
+            node.OnDisable.AddListener(() => {
+                _button.interactable = false;
+            });
         }
     }
 }

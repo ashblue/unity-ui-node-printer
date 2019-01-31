@@ -3,29 +3,43 @@ using UnityEngine.UI;
 
 namespace CleverCrow.UiNodeBuilder {
     public class ExampleGraphPrint : MonoBehaviour {
+        private NodeGraph _graph;
+        
         public NodeGraphPrinter printer;
         public NodeData root;
         
         [Header("Skill Points")]
-        public int skillPoints = 3;
-        public Text skillPointText;
         
-        private void Start () {
-            var graph = new NodeGraphBuilder();
-            root.children.ForEach(n => graph.Add(n.displayName, n.graphic, (node) => {
-                if (!node.Purchased && skillPoints > 0) {
-                    skillPoints -= 1;
-                    node.Purchased = true;
-                    UpdateSkillPointText();
-                }
-            }));
-            printer.Build(graph.Build());
+        [SerializeField]
+        private int _skillPoints = 2;
+        public Text skillPointText;
 
-            UpdateSkillPointText();
+        private void Start () {
+            var graphBuilder = new NodeGraphBuilder();
+            root.children.ForEach(n => {
+                graphBuilder.Add(n.displayName, n.graphic);
+                graphBuilder.OnClickNode((node) => {
+                    if (!node.Purchased && _skillPoints > 0) {
+                        _skillPoints -= 1;
+                        node.Purchased = true;
+                        UpdateSkillPoints();
+                    }
+                });
+                graphBuilder.End();
+            });
+
+            _graph = graphBuilder.Build();
+            printer.Build(_graph);
+
+            UpdateSkillPoints();
         }
 
-        private void UpdateSkillPointText () {
-            skillPointText.text = $"Skill Points: {skillPoints}";
+        private void UpdateSkillPoints () {
+            skillPointText.text = $"Skill Points: {_skillPoints}";
+            
+            if (_skillPoints == 0) {
+                _graph.Nodes.ForEach(n => n.Disable());
+            }
         }
     }
 }
