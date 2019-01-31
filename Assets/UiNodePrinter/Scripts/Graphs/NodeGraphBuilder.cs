@@ -18,11 +18,13 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Add (string name, Sprite graphic) {
+            var parent = _pointer.Peek();
             var node = new Node {
                 Name = name,
                 Graphic = graphic,
             };
-            
+
+            node.Enabled = parent.Purchased;
             _graph.AddNode(Pointer.Peek(), node);
             _graph.Nodes.Add(node);
             _pointer.Push(node);
@@ -32,13 +34,16 @@ namespace CleverCrow.UiNodeBuilder {
 
         public NodeGraphBuilder OnClickNode (Action<INode> callback) {
             _pointer.Peek().OnClick = callback;
-            
             return this;
         }
 
         public NodeGraphBuilder End () {
             _pointer.Pop();
+            return this;
+        }
 
+        public NodeGraphBuilder Purchased (bool purchased) {
+            _pointer.Peek().Purchased = purchased;
             return this;
         }
     }

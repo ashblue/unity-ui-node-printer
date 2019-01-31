@@ -13,6 +13,7 @@ namespace CleverCrow.UiNodeBuilder {
         
         UnityEvent OnPurchaseChange { get; }
         UnityEvent OnDisable { get; }
+        bool Enabled { get; set; }
 
         void AddChild (INode node);
         void Disable ();
