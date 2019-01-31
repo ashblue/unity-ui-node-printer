@@ -16,5 +16,6 @@ namespace CleverCrow.UiNodeBuilder {
 
         void AddChild (INode node);
         void Disable ();
+        void Enable ();
     }
 }

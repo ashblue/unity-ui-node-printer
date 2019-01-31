@@ -17,6 +17,8 @@ namespace CleverCrow.UiNodeBuilder {
             set {
                 _purchased = value;
                 OnPurchaseChange.Invoke();
+
+                if (_purchased) EnableChildren();
             }
         }
 
@@ -31,6 +33,13 @@ namespace CleverCrow.UiNodeBuilder {
             if (!Purchased) {
                 OnDisable.Invoke();
             }
+        }
+
+        public void Enable () {
+        }
+
+        private void EnableChildren () {
+            Children.ForEach(c => c.Enable());
         }
     }
 }
