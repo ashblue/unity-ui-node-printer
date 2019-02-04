@@ -20,7 +20,7 @@ namespace CleverCrow.UiNodeBuilder {
         public void Setup (INode node) {
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;
-            _button.onClick.AddListener(() => node.OnClick(node));
+            _button.onClick.AddListener(() => node.OnClick.Invoke(node));
             _purchaseGraphic.gameObject.SetActive(node.Purchased);
 
             node.OnPurchaseChange.AddListener(() => {

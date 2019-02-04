@@ -7,6 +7,7 @@ namespace CleverCrow.UiNodeBuilder {
         
         public NodeGraphPrinter printer;
         public NodeData root;
+        public NodeContext context;
         
         [Header("Skill Points")]
         
@@ -25,14 +26,13 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, NodeData data) {
-            builder.Add(data.displayName, data.graphic);
-            builder.OnClickNode((node) => {
-                if (!node.Purchased && _skillPoints > 0) {
+            builder.Add(data.displayName, data.description, data.graphic)
+                .IsPurchasable((node) => !node.Purchased && _skillPoints > 0)
+                .OnPurchase((node) => {
                     _skillPoints -= 1;
-                    node.Purchased = true;
                     UpdateSkillPoints();
-                }
-            });
+                })
+                .OnClickNode((node) => context.Open(node));
             data.children.ForEach(child => NodeRecursiveAdd(builder, child));
             builder.End();
         }

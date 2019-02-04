@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraphBuilder {
@@ -32,8 +33,20 @@ namespace CleverCrow.UiNodeBuilder {
             return this;
         }
 
-        public NodeGraphBuilder OnClickNode (Action<INode> callback) {
-            _pointer.Peek().OnClick = callback;
+        public NodeGraphBuilder Add (string name, string description, Sprite graphic) {
+            Add(name, graphic);
+            _pointer.Peek().Description = description;
+            
+            return this;
+        }
+
+        public NodeGraphBuilder OnClickNode (UnityAction<INode> callback) {
+            _pointer.Peek().OnClick.AddListener(callback);
+            return this;
+        }
+        
+        public NodeGraphBuilder OnPurchase (UnityAction<INode> callback) {
+            _pointer.Peek().OnPurchase.AddListener(callback);
             return this;
         }
 
@@ -44,6 +57,11 @@ namespace CleverCrow.UiNodeBuilder {
 
         public NodeGraphBuilder Purchased (bool purchased) {
             _pointer.Peek().Purchased = purchased;
+            return this;
+        }
+
+        public NodeGraphBuilder IsPurchasable (Func<INode, bool> callback) {
+            _pointer.Peek().OnIsPurchasable = callback;
             return this;
         }
     }

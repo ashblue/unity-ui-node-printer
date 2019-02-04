@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace1d7353d42424ca484f93279961433, type: 3}
   m_Name: SkillA1B
   m_EditorClassIdentifier: 
-  displayName: A1A
+  displayName: A1B
+  description: 
   graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   children: []
