@@ -10,7 +10,7 @@ namespace CleverCrow.UiNodeBuilder {
         Sprite Graphic { get; set; }
         List<INode> Children { get; }
         bool Purchased { get; set; }
-        bool Enabled { get; set; }
+        bool Enabled { get; }
         bool IsPurchasable { get; }
         bool IsLocked { get; }
 

@@ -15,7 +15,7 @@ namespace CleverCrow.UiNodeBuilder {
         public List<INode> Children { get; } = new List<INode>();
         public bool IsPurchasable => !Purchased && OnIsPurchasable(this) && !IsLocked;
         public bool IsLocked => OnIsLocked(this);
-        public bool Enabled { get; set; }
+        public bool Enabled { get; private set; }
 
         public bool Purchased {
             get => _purchased;
@@ -41,10 +41,12 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public void Disable () {
+            Enabled = false;
             OnDisable.Invoke();
         }
 
         public void Enable () {
+            Enabled = true;
             OnEnable.Invoke();
         }
 

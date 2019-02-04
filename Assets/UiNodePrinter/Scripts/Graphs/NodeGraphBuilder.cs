@@ -26,7 +26,10 @@ namespace CleverCrow.UiNodeBuilder {
                 Graphic = graphic,
             };
 
-            node.Enabled = parent.Purchased;
+            if (parent.Purchased) {
+                node.Enable();
+            }
+            
             _graph.AddNode(Pointer.Peek(), node);
             _graph.Nodes.Add(node);
             _pointer.Push(node);

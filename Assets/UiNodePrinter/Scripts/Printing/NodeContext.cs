@@ -22,9 +22,8 @@ namespace CleverCrow.UiNodeBuilder {
             _title.text = node.Name;
             _description.text = node.Description;
 
+            _buttonPurchase.gameObject.SetActive(node.Enabled && node.IsPurchasable);
             _buttonPurchase.onClick.RemoveAllListeners();
-            _buttonPurchase.gameObject.SetActive(node.IsPurchasable);
-            _buttonPurchase.interactable = node.IsPurchasable;
             _buttonPurchase.onClick.AddListener(() => {
                 node.Purchased = true;
                 _buttonPurchase.gameObject.SetActive(false);
