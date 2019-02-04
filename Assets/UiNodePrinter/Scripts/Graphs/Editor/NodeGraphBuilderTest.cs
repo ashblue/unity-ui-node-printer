@@ -145,5 +145,17 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 Assert.AreEqual(builder.Pointer.Peek(), graph.Root);
             }
         }
+        
+        public class IsLockedMethod : NodeGraphBuilderTest {
+            [Test]
+            public void It_should_override_the_OnIsLocked_method () {
+                var graph = _builder
+                    .Add("Node Name", _graphic)
+                    .IsLocked((node) => true)
+                    .Build();
+                
+                Assert.AreEqual(graph.Root.Children[0].IsLocked, true);
+            }
+        }
     }
 }

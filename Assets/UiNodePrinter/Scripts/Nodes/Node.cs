@@ -13,7 +13,8 @@ namespace CleverCrow.UiNodeBuilder {
         public string Description { get; set; }
         public Sprite Graphic { get; set; }
         public List<INode> Children { get; } = new List<INode>();
-        public bool IsPurchasable => !Purchased && OnIsPurchasable(this);
+        public bool IsPurchasable => !Purchased && OnIsPurchasable(this) && !IsLocked;
+        public bool IsLocked => OnIsLocked(this);
         public bool Enabled { get; set; }
 
         public bool Purchased {
@@ -33,6 +34,7 @@ namespace CleverCrow.UiNodeBuilder {
         public UnityEvent OnDisable { get; } = new UnityEvent();
         public UnityEvent OnEnable { get; } = new UnityEvent();
         public Func<INode, bool> OnIsPurchasable { private get; set; } = (node) => true;
+        public Func<INode, bool> OnIsLocked { private get; set; } = (node) => false;
 
         public void AddChild (INode node) {
             Children.Add(node);

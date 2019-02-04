@@ -8,7 +8,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
         [SetUp]
         public void BeforeEach () {
             _node = new Node();
-        } 
+        }
         
         public class PurchasedProperty : NodeTest {
             [Test]
@@ -81,6 +81,32 @@ namespace CleverCrow.UiNodeBuilder.Editors {
 
                 Assert.IsTrue(_node.IsPurchasable);
             }
+        }
+
+        public class IsLockedProperty : NodeTest {
+            [Test]
+            public void Should_return_false_by_default () {
+                Assert.IsFalse(_node.IsLocked);
+            }
+            
+            [Test]
+            public void Returns_the_value_of_OnIsLocked () {
+                _node.OnIsLocked = (node) => true;
+                
+                Assert.IsTrue(_node.IsLocked);
+            }
+            
+            [Test]
+            public void Causes_IsPurchasable_to_return_false_if_true () {
+                _node.OnIsLocked = (node) => true;
+                
+                Assert.IsFalse(_node.IsPurchasable);
+            }     
+            
+            [Test]
+            public void Causes_IsPurchasable_to_return_true_if_false () {
+                Assert.IsTrue(_node.IsPurchasable);
+            }  
         }
     }
 }

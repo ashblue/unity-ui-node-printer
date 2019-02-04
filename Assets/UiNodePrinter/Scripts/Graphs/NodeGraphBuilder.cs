@@ -65,5 +65,10 @@ namespace CleverCrow.UiNodeBuilder {
             Current.OnIsPurchasable = callback;
             return this;
         }
+
+        public NodeGraphBuilder IsLocked (Func<INode, bool> callback) {
+            Current.OnIsLocked = callback;
+            return this;
+        }
     }
 }

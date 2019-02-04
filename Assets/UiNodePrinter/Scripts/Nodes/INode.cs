@@ -12,12 +12,14 @@ namespace CleverCrow.UiNodeBuilder {
         bool Purchased { get; set; }
         bool Enabled { get; set; }
         bool IsPurchasable { get; }
+        bool IsLocked { get; }
 
         UnityEvent<INode> OnClick { get; }
         UnityEvent<INode> OnPurchase { get; }
         UnityEvent OnDisable { get; }
         UnityEvent OnEnable { get; }
         Func<INode, bool> OnIsPurchasable { set; }
+        Func<INode, bool> OnIsLocked { set; }
 
         void AddChild (INode node);
         void Disable ();
