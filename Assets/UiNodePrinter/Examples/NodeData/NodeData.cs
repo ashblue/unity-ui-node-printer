@@ -11,6 +11,9 @@ namespace CleverCrow.UiNodeBuilder {
         
         public Sprite graphic;
         public List<NodeData> children;
+
+        [Tooltip("Set the node to purchased by default")]
+        public bool purchased;
         
         [Tooltip("Failure to meet the required level automatically locks the skill")]
         public int requiredLevel;

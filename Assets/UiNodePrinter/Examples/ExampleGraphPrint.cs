@@ -31,6 +31,7 @@ namespace CleverCrow.UiNodeBuilder {
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, NodeData data) {
             builder.Add(data.displayName, data.description, data.graphic)
+                .Purchased(data.purchased)
                 .IsPurchasable((node) => !node.Purchased && _skillPoints > 0)
                 .OnPurchase((node) => {
                     _skillPoints -= 1;

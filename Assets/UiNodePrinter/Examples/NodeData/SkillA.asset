@@ -18,4 +18,5 @@ MonoBehaviour:
   children:
   - {fileID: 11400000, guid: 27618a38881ba416da81f8bfdfd82530, type: 2}
   - {fileID: 11400000, guid: 758146686d29248e7a47f7fd383e23e3, type: 2}
+  purchased: 1
   requiredLevel: 0
