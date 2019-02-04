@@ -7,23 +7,26 @@ namespace CleverCrow.UiNodeBuilder {
     public interface INode {
         string Name { get; }
         string Description { get; set; }
+        Func<string> GetLockedDescription { get; set; }
         Sprite Graphic { get; set; }
         List<INode> Children { get; }
-        bool Purchased { get; set; }
-        bool Enabled { get; }
+        bool IsPurchased { get; }
+        bool IsEnabled { get; }
         bool IsPurchasable { get; }
         bool IsLocked { get; }
 
         UnityEvent<INode> OnClick { get; }
-        UnityEvent<INode> OnPurchase { get; }
+        UnityEvent OnPurchase { get; }
         UnityEvent OnDisable { get; }
         UnityEvent OnEnable { get; }
-        Func<INode, bool> OnIsPurchasable { set; }
-        Func<INode, bool> OnIsLocked { set; }
-        Func<string> GetLockedDescription { get; set; }
+        Func<bool> OnIsPurchasable { set; }
+        Func<bool> OnIsLocked { set; }
+        UnityEvent OnRefund { get; }
 
         void AddChild (INode node);
         void Disable ();
         void Enable ();
+        void Refund ();
+        void Purchase ();
     }
 }

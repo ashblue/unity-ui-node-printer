@@ -26,7 +26,7 @@ namespace CleverCrow.UiNodeBuilder {
                 Graphic = graphic,
             };
 
-            if (parent.Purchased) {
+            if (parent.IsPurchased) {
                 node.Enable();
             }
             
@@ -49,7 +49,7 @@ namespace CleverCrow.UiNodeBuilder {
             return this;
         }
         
-        public NodeGraphBuilder OnPurchase (UnityAction<INode> callback) {
+        public NodeGraphBuilder OnPurchase (UnityAction callback) {
             Current.OnPurchase.AddListener(callback);
             return this;
         }
@@ -59,23 +59,30 @@ namespace CleverCrow.UiNodeBuilder {
             return this;
         }
 
-        public NodeGraphBuilder Purchased (bool purchased) {
-            Current.Purchased = purchased;
+        public NodeGraphBuilder Purchased (bool purchase) {
+            if (!purchase) return this;
+            Current.Purchase();
+            
             return this;
         }
 
-        public NodeGraphBuilder IsPurchasable (Func<INode, bool> callback) {
+        public NodeGraphBuilder IsPurchasable (Func<bool> callback) {
             Current.OnIsPurchasable = callback;
             return this;
         }
 
-        public NodeGraphBuilder IsLocked (Func<INode, bool> callback) {
+        public NodeGraphBuilder IsLocked (Func<bool> callback) {
             Current.OnIsLocked = callback;
             return this;
         }
 
         public NodeGraphBuilder LockedDescription (Func<string> callback) {
             Current.GetLockedDescription = callback;
+            return this;
+        }
+
+        public NodeGraphBuilder OnRefund (UnityAction callback) {
+            Current.OnRefund.AddListener(callback);
             return this;
         }
     }

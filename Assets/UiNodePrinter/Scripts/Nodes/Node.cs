@@ -6,49 +6,61 @@ using UnityEngine.Events;
 namespace CleverCrow.UiNodeBuilder {
     public class Node : INode {
         private class UnityEventNode : UnityEvent<INode> {}
-        
-        private bool _purchased;
 
         public string Name { get; set; }
         public string Description { get; set; }
         public Sprite Graphic { get; set; }
         public List<INode> Children { get; } = new List<INode>();
-        public bool IsPurchasable => !Purchased && OnIsPurchasable(this) && !IsLocked;
-        public bool IsLocked => OnIsLocked(this);
-        public bool Enabled { get; private set; }
-
-        public bool Purchased {
-            get => _purchased;
-            set {
-                var oldValue = _purchased;
-                _purchased = value;
-                
-                if (oldValue) return;
-                OnPurchase.Invoke(this);
-                EnableChildren();
-            }
-        }
+        public bool IsPurchasable => !IsPurchased && OnIsPurchasable() && !IsLocked;
+        public bool IsLocked => OnIsLocked();
+        public bool IsEnabled { get; private set; }
+        public bool IsPurchased { get; private set; }
 
         public UnityEvent<INode> OnClick { get; } = new UnityEventNode();
-        public UnityEvent<INode> OnPurchase { get; } = new UnityEventNode();
+        public UnityEvent OnPurchase { get; } = new UnityEvent();
         public UnityEvent OnDisable { get; } = new UnityEvent();
         public UnityEvent OnEnable { get; } = new UnityEvent();
-        public Func<INode, bool> OnIsPurchasable { private get; set; } = (node) => true;
-        public Func<INode, bool> OnIsLocked { private get; set; } = (node) => false;
+        public UnityEvent OnRefund { get; } = new UnityEvent();
+        public Func<bool> OnIsPurchasable { private get; set; } = () => true;
+        public Func<bool> OnIsLocked { private get; set; } = () => false;
         public Func<string> GetLockedDescription { get; set; }
 
+        public void Purchase () {
+            if (IsPurchased) return;
+
+            IsPurchased = true;
+            OnPurchase.Invoke();
+            EnableChildren();
+        }
+        
         public void AddChild (INode node) {
             Children.Add(node);
         }
 
         public void Disable () {
-            Enabled = false;
+            IsEnabled = false;
             OnDisable.Invoke();
         }
 
         public void Enable () {
-            Enabled = true;
+            IsEnabled = true;
+
+            if (IsPurchased) {
+                Children.ForEach(child => child.Enable());
+            }
+            
             OnEnable.Invoke();
+        }
+
+        public void Refund () {
+            if (!IsPurchased) return;
+
+            IsPurchased = false;
+            Children.ForEach(child => {
+                child.Refund();
+                child.Disable();
+            });
+            OnRefund.Invoke();
         }
 
         private void EnableChildren () {

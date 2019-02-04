@@ -11,6 +11,9 @@ namespace CleverCrow.UiNodeBuilder {
         
         [SerializeField]
         private Button _buttonPurchase;
+        
+        [SerializeField]
+        private Button _buttonRefund;
 
         private void Awake () {
             gameObject.SetActive(false);
@@ -26,11 +29,27 @@ namespace CleverCrow.UiNodeBuilder {
                 _description.text += $"\n {node.GetLockedDescription()}";
             }
 
-            _buttonPurchase.gameObject.SetActive(node.Enabled && node.IsPurchasable);
+            SetupPurchase(node);
+            SetupRefund(node);
+        }
+
+        private void SetupRefund (INode node) {
+            _buttonRefund.gameObject.SetActive(node.IsPurchased);
+            _buttonRefund.onClick.RemoveAllListeners();
+            _buttonRefund.onClick.AddListener(() => {
+                node.Refund();
+                _buttonRefund.gameObject.SetActive(false);
+                SetupPurchase(node);
+            });
+        }
+
+        private void SetupPurchase (INode node) {
+            _buttonPurchase.gameObject.SetActive(node.IsEnabled && node.IsPurchasable);
             _buttonPurchase.onClick.RemoveAllListeners();
             _buttonPurchase.onClick.AddListener(() => {
-                node.Purchased = true;
+                node.Purchase();
                 _buttonPurchase.gameObject.SetActive(false);
+                SetupRefund(node);
             });
         }
     }

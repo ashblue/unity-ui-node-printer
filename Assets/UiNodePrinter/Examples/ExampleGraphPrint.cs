@@ -34,12 +34,16 @@ namespace CleverCrow.UiNodeBuilder {
             
             builder.Add(data.displayName, data.description, data.graphic)
                 .Purchased(data.purchased)
-                .IsPurchasable((node) => !node.Purchased && _skillPoints > 0)
-                .OnPurchase((node) => {
+                .IsPurchasable(() => _skillPoints > 0)
+                .OnPurchase(() => {
                     _skillPoints -= 1;
                     UpdateSkillPoints();
                 })
-                .IsLocked((node) => _currentLevel < data.requiredLevel)
+                .OnRefund(() => {
+                    _skillPoints += 1;
+                    UpdateSkillPoints();
+                })
+                .IsLocked(() => _currentLevel < data.requiredLevel)
                 .LockedDescription(() => $"Level {data.requiredLevel} is required.")
                 .OnClickNode((node) => context.Open(node));
             data.children.ForEach(child => NodeRecursiveAdd(builder, child));
@@ -51,8 +55,10 @@ namespace CleverCrow.UiNodeBuilder {
             
             if (_skillPoints == 0) {
                 _graph.Nodes.ForEach(n => {
-                    if (!n.Purchased) n.Disable();
+                    if (!n.IsPurchased) n.Disable();
                 });
+            } else {
+                _graph.Root.Enable();
             }
         }
     }

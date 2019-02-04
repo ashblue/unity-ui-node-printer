@@ -2,14 +2,13 @@
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraph {
-        public INode Root { get; } = new Node {
-            Purchased = true,
-        };
+        public INode Root { get; } = new Node();
         
         public List<INode> Nodes { get; } = new List<INode>();
 
         public NodeGraph () {
             Root.Enable();
+            Root.Purchase();
         }
 
         public void AddNode (INode parent, INode node) {

@@ -30,10 +30,10 @@ namespace CleverCrow.UiNodeBuilder {
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));
-            _purchaseGraphic.gameObject.SetActive(node.Purchased);
+            _purchaseGraphic.gameObject.SetActive(node.IsPurchased);
             _lockedGraphic.gameObject.SetActive(node.IsLocked);
 
-            node.OnPurchase.AddListener((n) => {
+            node.OnPurchase.AddListener(() => {
                 _purchaseGraphic.gameObject.SetActive(true);
             });
             
@@ -44,6 +44,11 @@ namespace CleverCrow.UiNodeBuilder {
                 _button.colors = colors;
             });
 
+            node.OnRefund.AddListener(() => {
+                _purchaseGraphic.gameObject.SetActive(false);
+                if (!node.IsEnabled) node.Disable();
+            });
+            
             node.OnEnable.AddListener(() => {
                 var colors = _button.colors;
                 colors.normalColor = _normalColor;
@@ -51,7 +56,7 @@ namespace CleverCrow.UiNodeBuilder {
                 _button.colors = colors;
             });
 
-            if (!node.Enabled) {
+            if (!node.IsEnabled || node.IsLocked) {
                 node.Disable();
             }
         }

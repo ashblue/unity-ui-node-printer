@@ -67,7 +67,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                         .Add("A", _graphic)
                         .Build();
                     
-                    Assert.IsTrue(graph.Root.Children[0].Enabled);
+                    Assert.IsTrue(graph.Root.Children[0].IsEnabled);
                 }
                 
                 [Test]
@@ -77,7 +77,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                         .Add("B", _graphic)
                         .Build();
                     
-                    Assert.IsFalse(graph.Root.Children[0].Children[0].Enabled);
+                    Assert.IsFalse(graph.Root.Children[0].Children[0].IsEnabled);
                 }
 
                 [Test]
@@ -88,7 +88,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                             .Add("B", _graphic)
                         .Build();
                     
-                    Assert.IsTrue(graph.Root.Children[0].Children[0].Enabled);
+                    Assert.IsTrue(graph.Root.Children[0].Children[0].IsEnabled);
                 }
             }
         }
@@ -107,7 +107,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             public void It_should_set_IsPurchasable_to_false () {
                 var graph = _builder
                     .Add("Node Name", _graphic)
-                    .IsPurchasable((node) => false)
+                    .IsPurchasable(() => false)
                     .Build();
                 
                 Assert.AreEqual(graph.Root.Children[0].IsPurchasable, false);
@@ -117,7 +117,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             public void It_should_set_IsPurchasable_to_true () {
                 var graph = _builder
                     .Add("Node Name", _graphic)
-                    .IsPurchasable((node) => true)
+                    .IsPurchasable(() => true)
                     .Build();
                 
                 Assert.AreEqual(graph.Root.Children[0].IsPurchasable, true);
@@ -151,7 +151,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             public void It_should_override_the_OnIsLocked_method () {
                 var graph = _builder
                     .Add("Node Name", _graphic)
-                    .IsLocked((node) => true)
+                    .IsLocked(() => true)
                     .Build();
                 
                 Assert.AreEqual(graph.Root.Children[0].IsLocked, true);
