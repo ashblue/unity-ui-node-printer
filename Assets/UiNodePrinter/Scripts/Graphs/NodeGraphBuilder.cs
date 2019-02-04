@@ -73,5 +73,10 @@ namespace CleverCrow.UiNodeBuilder {
             Current.OnIsLocked = callback;
             return this;
         }
+
+        public NodeGraphBuilder LockedDescription (Func<string> callback) {
+            Current.GetLockedDescription = callback;
+            return this;
+        }
     }
 }

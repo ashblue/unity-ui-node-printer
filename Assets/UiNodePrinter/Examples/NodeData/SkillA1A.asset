@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ace1d7353d42424ca484f93279961433, type: 3}
-  m_Name: SkillC
+  m_Name: SkillA1A
   m_EditorClassIdentifier: 
-  displayName: C
+  displayName: A1A
+  description: 
   graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   children: []
+  requiredLevel: 0

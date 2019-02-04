@@ -157,5 +157,19 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 Assert.AreEqual(graph.Root.Children[0].IsLocked, true);
             }
         }
+
+        public class LockedDescription : NodeGraphBuilderTest {
+            [Test]
+            public void It_should_set_the_locked_description_according_to_the_callback () {
+                const string text = "Lorem ipsum";
+                
+                var graph = _builder
+                    .Add("Node", _graphic)
+                    .LockedDescription(() => text)
+                    .Build();
+                
+                Assert.AreEqual(graph.Root.Children[0].GetLockedDescription(), text);
+            }
+        }
     }
 }

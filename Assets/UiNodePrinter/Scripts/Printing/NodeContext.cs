@@ -20,7 +20,11 @@ namespace CleverCrow.UiNodeBuilder {
             gameObject.SetActive(true);
             
             _title.text = node.Name;
+            
             _description.text = node.Description;
+            if (node.IsLocked) {
+                _description.text += $"\n {node.GetLockedDescription()}";
+            }
 
             _buttonPurchase.gameObject.SetActive(node.Enabled && node.IsPurchasable);
             _buttonPurchase.onClick.RemoveAllListeners();

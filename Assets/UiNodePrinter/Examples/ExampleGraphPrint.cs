@@ -8,11 +8,15 @@ namespace CleverCrow.UiNodeBuilder {
         public NodeGraphPrinter printer;
         public NodeData root;
         public NodeContext context;
+
+        [SerializeField] 
+        private int _currentLevel = 1;
         
         [Header("Skill Points")]
         
         [SerializeField]
         private int _skillPoints = 2;
+        
         public Text skillPointText;
 
         private void Start () {
@@ -32,6 +36,8 @@ namespace CleverCrow.UiNodeBuilder {
                     _skillPoints -= 1;
                     UpdateSkillPoints();
                 })
+                .IsLocked((node) => _currentLevel < data.requiredLevel)
+                .LockedDescription(() => $"Level {data.requiredLevel} is required.")
                 .OnClickNode((node) => context.Open(node));
             data.children.ForEach(child => NodeRecursiveAdd(builder, child));
             builder.End();

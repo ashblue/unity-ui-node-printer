@@ -15,6 +15,9 @@ namespace CleverCrow.UiNodeBuilder {
         private Image _purchaseGraphic;
 
         [SerializeField] 
+        private Image _lockedGraphic;
+
+        [SerializeField] 
         private Button _button;
 
         public RectTransform childOutput;
@@ -28,6 +31,7 @@ namespace CleverCrow.UiNodeBuilder {
             _graphic.sprite = node.Graphic;
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));
             _purchaseGraphic.gameObject.SetActive(node.Purchased);
+            _lockedGraphic.gameObject.SetActive(node.IsLocked);
 
             node.OnPurchase.AddListener((n) => {
                 _purchaseGraphic.gameObject.SetActive(true);

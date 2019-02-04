@@ -11,5 +11,8 @@ namespace CleverCrow.UiNodeBuilder {
         
         public Sprite graphic;
         public List<NodeData> children;
+        
+        [Tooltip("Failure to meet the required level automatically locks the skill")]
+        public int requiredLevel;
     }
 }
