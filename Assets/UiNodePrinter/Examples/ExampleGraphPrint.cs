@@ -41,7 +41,9 @@ namespace CleverCrow.UiNodeBuilder {
             skillPointText.text = $"Skill Points: {_skillPoints}";
             
             if (_skillPoints == 0) {
-                _graph.Nodes.ForEach(n => n.Disable());
+                _graph.Nodes.ForEach(n => {
+                    if (!n.Purchased) n.Disable();
+                });
             }
         }
     }

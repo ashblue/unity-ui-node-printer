@@ -19,17 +19,17 @@ namespace CleverCrow.UiNodeBuilder {
         public bool Purchased {
             get => _purchased;
             set {
+                var oldValue = _purchased;
                 _purchased = value;
-                if (value) OnPurchase.Invoke(this);
-                OnPurchaseChange.Invoke();
-
-                if (_purchased) EnableChildren();
+                
+                if (oldValue) return;
+                OnPurchase.Invoke(this);
+                EnableChildren();
             }
         }
 
         public UnityEvent<INode> OnClick { get; } = new UnityEventNode();
         public UnityEvent<INode> OnPurchase { get; } = new UnityEventNode();
-        public UnityEvent OnPurchaseChange { get; } = new UnityEvent();
         public UnityEvent OnDisable { get; } = new UnityEvent();
         public UnityEvent OnEnable { get; } = new UnityEvent();
         public Func<INode, bool> OnIsPurchasable { private get; set; } = (node) => true;
@@ -39,9 +39,7 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public void Disable () {
-            if (!Purchased) {
-                OnDisable.Invoke();
-            }
+            OnDisable.Invoke();
         }
 
         public void Enable () {

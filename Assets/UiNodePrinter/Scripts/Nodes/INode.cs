@@ -15,7 +15,6 @@ namespace CleverCrow.UiNodeBuilder {
 
         UnityEvent<INode> OnClick { get; }
         UnityEvent<INode> OnPurchase { get; }
-        UnityEvent OnPurchaseChange { get; }
         UnityEvent OnDisable { get; }
         UnityEvent OnEnable { get; }
         Func<INode, bool> OnIsPurchasable { set; }

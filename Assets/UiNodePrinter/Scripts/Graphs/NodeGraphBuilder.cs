@@ -9,6 +9,7 @@ namespace CleverCrow.UiNodeBuilder {
         private readonly Stack<INode> _pointer = new Stack<INode>();
         
         public Stack<INode> Pointer => _pointer;
+        private INode Current => _pointer.Peek();
 
         public NodeGraphBuilder () {
             _pointer.Push(_graph.Root);
@@ -19,7 +20,7 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Add (string name, Sprite graphic) {
-            var parent = _pointer.Peek();
+            var parent = Current;
             var node = new Node {
                 Name = name,
                 Graphic = graphic,
@@ -35,18 +36,18 @@ namespace CleverCrow.UiNodeBuilder {
 
         public NodeGraphBuilder Add (string name, string description, Sprite graphic) {
             Add(name, graphic);
-            _pointer.Peek().Description = description;
+            Current.Description = description;
             
             return this;
         }
 
         public NodeGraphBuilder OnClickNode (UnityAction<INode> callback) {
-            _pointer.Peek().OnClick.AddListener(callback);
+            Current.OnClick.AddListener(callback);
             return this;
         }
         
         public NodeGraphBuilder OnPurchase (UnityAction<INode> callback) {
-            _pointer.Peek().OnPurchase.AddListener(callback);
+            Current.OnPurchase.AddListener(callback);
             return this;
         }
 
@@ -56,12 +57,12 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Purchased (bool purchased) {
-            _pointer.Peek().Purchased = purchased;
+            Current.Purchased = purchased;
             return this;
         }
 
         public NodeGraphBuilder IsPurchasable (Func<INode, bool> callback) {
-            _pointer.Peek().OnIsPurchasable = callback;
+            Current.OnIsPurchasable = callback;
             return this;
         }
     }
