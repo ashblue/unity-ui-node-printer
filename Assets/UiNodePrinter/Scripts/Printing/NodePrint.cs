@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodePrint : MonoBehaviour {
+        private Color _normalColor;
+
         [SerializeField] 
         private Text _name;
 
@@ -17,6 +19,10 @@ namespace CleverCrow.UiNodeBuilder {
 
         public RectTransform childOutput;
 
+        private void Awake () {
+            _normalColor = _button.colors.normalColor;
+        }
+
         public void Setup (INode node) {
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;
@@ -28,11 +34,17 @@ namespace CleverCrow.UiNodeBuilder {
             });
             
             node.OnDisable.AddListener(() => {
-                _button.interactable = false;
+                var colors = _button.colors;
+                colors.normalColor = colors.disabledColor;
+
+                _button.colors = colors;
             });
 
             node.OnEnable.AddListener(() => {
-                _button.interactable = true;
+                var colors = _button.colors;
+                colors.normalColor = _normalColor;
+
+                _button.colors = colors;
             });
 
             if (!node.Enabled) {

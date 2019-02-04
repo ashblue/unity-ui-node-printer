@@ -27,7 +27,7 @@ namespace CleverCrow.UiNodeBuilder {
             _buttonPurchase.interactable = node.IsPurchasable;
             _buttonPurchase.onClick.AddListener(() => {
                 node.Purchased = true;
-                _buttonPurchase.interactable = false;
+                _buttonPurchase.gameObject.SetActive(false);
             });
         }
     }
