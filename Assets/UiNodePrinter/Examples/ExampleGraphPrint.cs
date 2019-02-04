@@ -30,6 +30,8 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, NodeData data) {
+            if (_currentLevel < data.requiredLevel && data.hideRequiredLevel) return;
+            
             builder.Add(data.displayName, data.description, data.graphic)
                 .Purchased(data.purchased)
                 .IsPurchasable((node) => !node.Purchased && _skillPoints > 0)

@@ -929,6 +929,7 @@ MonoBehaviour:
   printer: {fileID: 1444955939}
   root: {fileID: 11400000, guid: a56b76649b538420e8f0b22ee29c3490, type: 2}
   context: {fileID: 1777309977}
+  _currentLevel: 1
   _skillPoints: 2
   skillPointText: {fileID: 13583411}
 --- !u!1 &1478221857

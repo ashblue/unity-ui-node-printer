@@ -17,5 +17,8 @@ namespace CleverCrow.UiNodeBuilder {
         
         [Tooltip("Failure to meet the required level automatically locks the skill")]
         public int requiredLevel;
+
+        [Tooltip("This node will not be printed if it does not meet the required level")]
+        public bool hideRequiredLevel;
     }
 }
