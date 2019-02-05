@@ -1135,7 +1135,7 @@ MonoBehaviour:
   _nodeOutput: {fileID: 1951140248}
   _nodeSkillPrefab: {fileID: 5344406961360026951, guid: 9768d5f91f175467789132a3b26d9d48,
     type: 3}
-  _nodeAbilityPrefab: {fileID: 5344406961360026951, guid: 55f2e6a309c5a43f68169115aa8cabf8,
+  _nodeAbilityPrefab: {fileID: 5344406961360026951, guid: b286146b80e224ec8ba63f18a62b8811,
     type: 3}
 --- !u!114 &1444955940
 MonoBehaviour:
@@ -1155,7 +1155,7 @@ MonoBehaviour:
   pointText: {fileID: 13583411}
   currentLevel: 1
   skillPoints: 2
-  abilityPoints: 2
+  abilityPoints: 1
 --- !u!1 &1478221857
 GameObject:
   m_ObjectHideFlags: 0

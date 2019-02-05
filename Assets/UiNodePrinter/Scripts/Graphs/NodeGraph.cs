@@ -9,6 +9,7 @@ namespace CleverCrow.UiNodeBuilder {
         public NodeGraph () {
             Root.Enable();
             Root.Purchase();
+            Root.IsRoot = true;
         }
 
         public void AddNode (INode parent, INode node) {

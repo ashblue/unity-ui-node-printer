@@ -21,6 +21,8 @@ namespace CleverCrow.UiNodeBuilder {
         private Button _button;
 
         public RectTransform childOutput;
+        public RectTransform leftConnector;
+        public RectTransform rightConnector;
 
         private void Awake () {
             _normalColor = _button.colors.normalColor;
@@ -32,6 +34,9 @@ namespace CleverCrow.UiNodeBuilder {
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));
             _purchaseGraphic.gameObject.SetActive(node.IsPurchased);
             _lockedGraphic.gameObject.SetActive(node.IsLocked);
+            
+            leftConnector.gameObject.SetActive(!node.Parent.IsRoot);
+            rightConnector.gameObject.SetActive(node.Children.Count > 0);
 
             node.OnPurchase.AddListener(() => {
                 _purchaseGraphic.gameObject.SetActive(true);

@@ -20,13 +20,13 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Add (string name, Sprite graphic) {
-            var parent = Current;
             var node = new Node {
                 Name = name,
                 Graphic = graphic,
+                Parent = Current,
             };
-
-            if (parent.IsPurchased) {
+            
+            if (node.Parent.IsPurchased) {
                 node.Enable();
             }
             
