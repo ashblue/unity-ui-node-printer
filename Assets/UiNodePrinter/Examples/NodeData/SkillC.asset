@@ -16,4 +16,7 @@ MonoBehaviour:
   description: 
   graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   children: []
+  type: 1
+  purchased: 0
   requiredLevel: 0
+  hideRequiredLevel: 0

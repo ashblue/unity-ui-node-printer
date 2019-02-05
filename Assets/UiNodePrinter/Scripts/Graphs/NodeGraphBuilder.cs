@@ -85,5 +85,10 @@ namespace CleverCrow.UiNodeBuilder {
             Current.OnRefund.AddListener(callback);
             return this;
         }
+
+        public NodeGraphBuilder NodeType (NodeType type) {
+            Current.NodeType = type;
+            return this;
+        }
     }
 }

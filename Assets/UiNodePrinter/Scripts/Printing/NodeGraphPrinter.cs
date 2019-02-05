@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
@@ -6,10 +7,12 @@ namespace CleverCrow.UiNodeBuilder {
         [SerializeField]
         private RectTransform _nodeOutput;
         
-        [Tooltip("Prefab used to output nodes")]
-        [SerializeField] 
-        private NodePrint _nodePrintPrefab;
+        [SerializeField]
+        private NodePrint _nodeSkillPrefab;
         
+        [SerializeField]
+        private NodePrint _nodeAbilityPrefab;
+
         public void Build (NodeGraph graph) {
             foreach (var child in graph.Root.Children) {
                 RecursivePrint(child, _nodeOutput);
@@ -17,10 +20,21 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         private void RecursivePrint (INode data, RectTransform output) {
-            var node = Instantiate(_nodePrintPrefab, output);
+            var node = Instantiate(GetPrefab(data), output);
             node.Setup(data);
             
             data.Children.ForEach(child => RecursivePrint(child, node.childOutput));
+        }
+
+        private NodePrint GetPrefab (INode data) {
+            switch (data.NodeType) {
+                case NodeType.Skill:
+                    return _nodeSkillPrefab;
+                case NodeType.Ability:
+                    return _nodeAbilityPrefab;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

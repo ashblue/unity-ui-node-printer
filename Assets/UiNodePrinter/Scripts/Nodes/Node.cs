@@ -21,6 +21,7 @@ namespace CleverCrow.UiNodeBuilder {
         public UnityEvent OnDisable { get; } = new UnityEvent();
         public UnityEvent OnEnable { get; } = new UnityEvent();
         public UnityEvent OnRefund { get; } = new UnityEvent();
+        public NodeType NodeType { get; set; }
         public Func<bool> OnIsPurchasable { private get; set; } = () => true;
         public Func<bool> OnIsLocked { private get; set; } = () => false;
         public Func<string> GetLockedDescription { get; set; }

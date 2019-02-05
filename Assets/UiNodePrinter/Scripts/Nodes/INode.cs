@@ -22,6 +22,7 @@ namespace CleverCrow.UiNodeBuilder {
         Func<bool> OnIsPurchasable { set; }
         Func<bool> OnIsLocked { set; }
         UnityEvent OnRefund { get; }
+        NodeType NodeType { get; set; }
 
         void AddChild (INode node);
         void Disable ();

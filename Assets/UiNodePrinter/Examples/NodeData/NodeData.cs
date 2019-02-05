@@ -12,6 +12,8 @@ namespace CleverCrow.UiNodeBuilder {
         public Sprite graphic;
         public List<NodeData> children;
 
+        public NodeType type;
+
         [Tooltip("Set the node to purchased by default")]
         public bool purchased;
         

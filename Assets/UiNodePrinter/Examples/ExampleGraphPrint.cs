@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,13 @@ namespace CleverCrow.UiNodeBuilder {
         public NodeGraphPrinter printer;
         public NodeData root;
         public NodeContext context;
-
-        [SerializeField] 
-        private int _currentLevel = 1;
+        public Text pointText;
         
-        [Header("Skill Points")]
+        [Header("Stats")]
         
-        [SerializeField]
-        private int _skillPoints = 2;
-        
-        public Text skillPointText;
+        public int currentLevel = 1;
+        public int skillPoints = 2;
+        public int abilityPoints = 2;
 
         private void Start () {
             var graphBuilder = new NodeGraphBuilder();
@@ -26,34 +24,55 @@ namespace CleverCrow.UiNodeBuilder {
             _graph = graphBuilder.Build();
             printer.Build(_graph);
 
-            UpdateSkillPoints();
+            UpdatePoints();
         }
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, NodeData data) {
-            if (_currentLevel < data.requiredLevel && data.hideRequiredLevel) return;
+            if (currentLevel < data.requiredLevel && data.hideRequiredLevel) return;
             
             builder.Add(data.displayName, data.description, data.graphic)
+                .NodeType(data.type)
                 .Purchased(data.purchased)
-                .IsPurchasable(() => _skillPoints > 0)
-                .OnPurchase(() => {
-                    _skillPoints -= 1;
-                    UpdateSkillPoints();
-                })
-                .OnRefund(() => {
-                    _skillPoints += 1;
-                    UpdateSkillPoints();
-                })
-                .IsLocked(() => _currentLevel < data.requiredLevel)
+                .IsPurchasable(() => IsPurchasable(data))
+                .OnPurchase(() => { ChangePoints(data, -1); })
+                .OnRefund(() => { ChangePoints(data, 1); })
+                .IsLocked(() => currentLevel < data.requiredLevel)
                 .LockedDescription(() => $"Level {data.requiredLevel} is required.")
                 .OnClickNode((node) => context.Open(node));
             data.children.ForEach(child => NodeRecursiveAdd(builder, child));
             builder.End();
         }
 
-        private void UpdateSkillPoints () {
-            skillPointText.text = $"Skill Points: {_skillPoints}";
+        private void ChangePoints (NodeData data, int amount) {
+            switch (data.type) {
+                case NodeType.Skill:
+                    skillPoints += amount;
+                    break;
+                case NodeType.Ability:
+                    abilityPoints += amount;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            UpdatePoints();
+        }
+
+        private bool IsPurchasable (NodeData data) {
+            switch (data.type) {
+                case NodeType.Skill:
+                    return skillPoints > 0;
+                case NodeType.Ability:
+                    return abilityPoints > 0;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void UpdatePoints () {
+            pointText.text = $"Ability Points: {abilityPoints}; Skill Points: {skillPoints}";
             
-            if (_skillPoints == 0) {
+            if (skillPoints == 0) {
                 _graph.Nodes.ForEach(n => {
                     if (!n.IsPurchased) n.Disable();
                 });
