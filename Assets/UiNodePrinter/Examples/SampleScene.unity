@@ -1154,7 +1154,7 @@ MonoBehaviour:
   context: {fileID: 1777309977}
   pointText: {fileID: 13583411}
   currentLevel: 1
-  skillPoints: 2
+  skillPoints: 1
   abilityPoints: 1
 --- !u!1 &1478221857
 GameObject:

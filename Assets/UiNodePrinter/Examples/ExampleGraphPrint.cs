@@ -72,13 +72,15 @@ namespace CleverCrow.UiNodeBuilder {
         private void UpdatePoints () {
             pointText.text = $"Ability Points: {abilityPoints}; Skill Points: {skillPoints}";
             
-            if (skillPoints == 0) {
-                _graph.Nodes.ForEach(n => {
-                    if (!n.IsPurchased) n.Disable();
-                });
-            } else {
+            if (abilityPoints > 0 || skillPoints > 0) {
                 _graph.Root.Enable();
             }
+            
+            if (abilityPoints == 0 || skillPoints == 0) {
+                _graph.Nodes.ForEach(n => {
+                    if (!n.IsPurchased && !n.IsPurchasable) n.Disable();
+                });
+            } 
         }
     }
 }
