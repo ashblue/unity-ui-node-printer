@@ -43,8 +43,9 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public void Enable () {
-            IsEnabled = true;
+            if (IsLocked) return;
 
+            IsEnabled = true;
             if (IsPurchased) {
                 Children.ForEach(child => child.Enable());
             }

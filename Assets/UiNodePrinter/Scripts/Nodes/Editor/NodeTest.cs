@@ -109,6 +109,23 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             }  
         }
 
+        public class EnableMethod : NodeTest {
+            [Test]
+            public void It_should_set_IsEnabled () {
+                _node.Enable();
+
+                Assert.IsTrue(_node.IsEnabled);
+            }
+            
+            [Test]
+            public void It_should_not_set_IsEnabled_if_IsLocked_is_set () {
+                _node.OnIsLocked = () => false;
+                _node.Enable();
+
+                Assert.IsFalse(_node.IsEnabled);
+            }
+        }
+
         public class RefundMethod : NodeTest {
             [Test]
             public void It_should_trigger_the_OnRefund_event () {
