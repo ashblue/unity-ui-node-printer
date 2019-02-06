@@ -21,6 +21,7 @@ namespace CleverCrow.UiNodeBuilder {
         private Button _button;
 
         public RectTransform childOutput;
+        public RectTransform linkConnector;
         public RectTransform leftConnector;
         public RectTransform rightConnector;
 
@@ -29,13 +30,20 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public void Setup (INode node) {
+            if (node.Parents.Count > 1) {
+                var size = linkConnector.sizeDelta;
+                size = new Vector2(size.x, size.y * (node.Parents.Count - 1));
+                linkConnector.sizeDelta = size;
+                linkConnector.gameObject.SetActive(true);
+            }
+            
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));
             _purchaseGraphic.gameObject.SetActive(node.IsPurchased);
             _lockedGraphic.gameObject.SetActive(node.IsLocked);
             
-            leftConnector.gameObject.SetActive(!node.Parent.IsRoot);
+            leftConnector.gameObject.SetActive(node.Parents.Find(p => p.IsRoot) == null);
             rightConnector.gameObject.SetActive(node.Children.Count > 0);
 
             node.OnPurchase.AddListener(() => {

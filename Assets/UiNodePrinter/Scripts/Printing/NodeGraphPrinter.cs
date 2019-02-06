@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraphPrinter : MonoBehaviour {
+        private HashSet<INode> _printedNodes = new HashSet<INode>();
+
         [Tooltip("Where nodes will be output in a Canvas")]
         [SerializeField]
         private RectTransform _nodeOutput;
@@ -20,8 +23,11 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         private void RecursivePrint (INode data, RectTransform output) {
+            if (_printedNodes.Contains(data)) return;
+            
             var node = Instantiate(GetPrefab(data), output);
             node.Setup(data);
+            _printedNodes.Add(data);
             
             data.Children.ForEach(child => RecursivePrint(child, node.childOutput));
         }

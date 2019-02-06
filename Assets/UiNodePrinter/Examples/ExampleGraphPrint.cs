@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace CleverCrow.UiNodeBuilder {
     public class ExampleGraphPrint : MonoBehaviour {
         private NodeGraph _graph;
+        private Dictionary<NodeData, INode> _dataToNode = new Dictionary<NodeData, INode>();
         
         public NodeGraphPrinter printer;
         public NodeData root;
@@ -29,18 +31,25 @@ namespace CleverCrow.UiNodeBuilder {
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, NodeData data) {
             if (currentLevel < data.requiredLevel && data.hideRequiredLevel) return;
+
+            if (_dataToNode.ContainsKey(data)) {
+                builder.AddExistingNode(_dataToNode[data]);
+            } else {
+                builder.Add(data.displayName, data.description, data.graphic)
+                    .NodeType(data.type)
+                    .Purchased(data.purchased)
+                    .IsPurchasable(() => IsPurchasable(data))
+                    .OnPurchase(() => { ChangePoints(data, -1); })
+                    .OnRefund(() => { ChangePoints(data, 1); })
+                    .IsLocked(() => currentLevel < data.requiredLevel)
+                    .LockedDescription(() => $"Level {data.requiredLevel} is required.")
+                    .OnClickNode((node) => context.Open(node));
+                
+                _dataToNode[data] = builder.Current;
+                data.children.ForEach(child => NodeRecursiveAdd(builder, child));
+                builder.End();
+            }
             
-            builder.Add(data.displayName, data.description, data.graphic)
-                .NodeType(data.type)
-                .Purchased(data.purchased)
-                .IsPurchasable(() => IsPurchasable(data))
-                .OnPurchase(() => { ChangePoints(data, -1); })
-                .OnRefund(() => { ChangePoints(data, 1); })
-                .IsLocked(() => currentLevel < data.requiredLevel)
-                .LockedDescription(() => $"Level {data.requiredLevel} is required.")
-                .OnClickNode((node) => context.Open(node));
-            data.children.ForEach(child => NodeRecursiveAdd(builder, child));
-            builder.End();
         }
 
         private void ChangePoints (NodeData data, int amount) {

@@ -8,12 +8,15 @@ namespace CleverCrow.UiNodeBuilder {
         string Name { get; }
         string Description { get; set; }
         Func<string> GetLockedDescription { get; set; }
+        NodeType NodeType { get; set; }
+        List<INode> Parents { get; }
         Sprite Graphic { get; set; }
         List<INode> Children { get; }
         bool IsPurchased { get; }
         bool IsEnabled { get; }
         bool IsPurchasable { get; }
         bool IsLocked { get; }
+        bool IsRoot { get; set; }
 
         UnityEvent<INode> OnClick { get; }
         UnityEvent OnPurchase { get; }
@@ -22,9 +25,7 @@ namespace CleverCrow.UiNodeBuilder {
         Func<bool> OnIsPurchasable { set; }
         Func<bool> OnIsLocked { set; }
         UnityEvent OnRefund { get; }
-        NodeType NodeType { get; set; }
-        INode Parent { get; set; }
-        bool IsRoot { get; set; }
+
 
         void AddChild (INode node);
         void Disable ();

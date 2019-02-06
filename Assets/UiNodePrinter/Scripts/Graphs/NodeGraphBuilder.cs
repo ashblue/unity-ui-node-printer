@@ -9,7 +9,7 @@ namespace CleverCrow.UiNodeBuilder {
         private readonly Stack<INode> _pointer = new Stack<INode>();
         
         public Stack<INode> Pointer => _pointer;
-        private INode Current => _pointer.Peek();
+        public INode Current => _pointer.Peek();
 
         public NodeGraphBuilder () {
             _pointer.Push(_graph.Root);
@@ -20,13 +20,14 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public NodeGraphBuilder Add (string name, Sprite graphic) {
+            var parent = Current;
             var node = new Node {
                 Name = name,
                 Graphic = graphic,
-                Parent = Current,
             };
-            
-            if (node.Parent.IsPurchased) {
+
+            node.Parents.Add(parent);
+            if (parent.IsPurchased) {
                 node.Enable();
             }
             
@@ -34,6 +35,13 @@ namespace CleverCrow.UiNodeBuilder {
             _graph.Nodes.Add(node);
             _pointer.Push(node);
 
+            return this;
+        }
+        
+        public NodeGraphBuilder AddExistingNode (INode node) {
+            _graph.AddNode(Pointer.Peek(), node);
+            node.Parents.Add(Current);
+            
             return this;
         }
 

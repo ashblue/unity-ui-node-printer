@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ace1d7353d42424ca484f93279961433, type: 3}
-  m_Name: SkillB2
+  m_Name: SkillB1A
   m_EditorClassIdentifier: 
-  displayName: B2
+  displayName: B1A
   description: 
   graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
-  children:
-  - {fileID: 11400000, guid: a552e5ef7c7e343fd97cf2b02183217a, type: 2}
+  children: []
   type: 0
   purchased: 0
   requiredLevel: 0
