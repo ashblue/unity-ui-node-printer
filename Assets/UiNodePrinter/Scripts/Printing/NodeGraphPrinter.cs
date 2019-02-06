@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraphPrinter : MonoBehaviour {
+        private List<NodePrint> _nodes = new List<NodePrint>();
         private HashSet<INode> _printedNodes = new HashSet<INode>();
 
         [Tooltip("Where nodes will be output in a Canvas")]
@@ -20,6 +22,16 @@ namespace CleverCrow.UiNodeBuilder {
             foreach (var child in graph.Root.Children) {
                 RecursivePrint(child, _nodeOutput);
             }
+
+            StartCoroutine(PostProcess());
+        }
+
+        private IEnumerator PostProcess () {
+            yield return null;
+            
+            foreach (var node in _nodes) {
+                node.OnGraphComplete();
+            }
         }
 
         private void RecursivePrint (INode data, RectTransform output) {
@@ -28,6 +40,7 @@ namespace CleverCrow.UiNodeBuilder {
             var node = Instantiate(GetPrefab(data), output);
             node.Setup(data);
             _printedNodes.Add(data);
+            _nodes.Add(node);
             
             data.Children.ForEach(child => RecursivePrint(child, node.childOutput));
         }

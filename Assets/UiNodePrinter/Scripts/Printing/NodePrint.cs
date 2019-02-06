@@ -4,6 +4,8 @@ using UnityEngine.UI;
 namespace CleverCrow.UiNodeBuilder {
     public class NodePrint : MonoBehaviour {
         private Color _normalColor;
+        private float _startingHeight;
+        private RectTransform _rect;
 
         [SerializeField] 
         private Text _name;
@@ -27,9 +29,12 @@ namespace CleverCrow.UiNodeBuilder {
 
         private void Awake () {
             _normalColor = _button.colors.normalColor;
+            _rect = GetComponent<RectTransform>();
         }
 
         public void Setup (INode node) {
+            _startingHeight = _rect.sizeDelta.y;
+            
             if (node.Parents.Count > 1) {
                 var size = linkConnector.sizeDelta;
                 size = new Vector2(size.x, size.y * (node.Parents.Count - 1));
@@ -72,6 +77,15 @@ namespace CleverCrow.UiNodeBuilder {
             if (!node.IsEnabled || node.IsLocked) {
                 node.Disable();
             }
+        }
+
+        // Expand the vertical height to account for nested children on link connectors
+        public void OnGraphComplete () {
+            if (linkConnector == null) return;
+            var rectSize = _rect.sizeDelta;
+            var linkSize = linkConnector.sizeDelta;
+            linkSize.y += rectSize.y - _startingHeight;
+            linkConnector.sizeDelta = linkSize;
         }
     }
 }
