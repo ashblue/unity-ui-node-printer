@@ -49,7 +49,6 @@ namespace CleverCrow.UiNodeBuilder {
                 data.children.ForEach(child => NodeRecursiveAdd(builder, child));
                 builder.End();
             }
-            
         }
 
         private void ChangePoints (NodeData data, int amount) {
