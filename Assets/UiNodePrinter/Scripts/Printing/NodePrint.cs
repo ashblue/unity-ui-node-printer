@@ -23,6 +23,7 @@ namespace CleverCrow.UiNodeBuilder {
         private Button _button;
 
         public RectTransform childOutput;
+        public RectTransform childConnector;
         public RectTransform linkConnector;
         public RectTransform leftConnector;
         public RectTransform rightConnector;
@@ -47,6 +48,7 @@ namespace CleverCrow.UiNodeBuilder {
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));
             _purchaseGraphic.gameObject.SetActive(node.IsPurchased);
             _lockedGraphic.gameObject.SetActive(node.IsLocked);
+            childConnector.gameObject.SetActive(node.Children.Count > 0);
             
             leftConnector.gameObject.SetActive(node.Parents.Find(p => p.IsRoot) == null);
             rightConnector.gameObject.SetActive(node.Children.Count > 0);

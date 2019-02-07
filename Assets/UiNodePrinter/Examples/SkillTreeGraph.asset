@@ -24,7 +24,39 @@ MonoBehaviour:
   - {fileID: 114480789418188422}
   - {fileID: 114005465720191440}
   - {fileID: 114561548194428882}
-  root: {fileID: 0}
+  - {fileID: 114018686589268796}
+  - {fileID: 114043199386036464}
+  - {fileID: 114688965763048966}
+  - {fileID: 114211201783742626}
+  - {fileID: 114067522980019626}
+  - {fileID: 114985150984201968}
+  - {fileID: 114319517427177240}
+  - {fileID: 114252126653325364}
+  - {fileID: 114501818575021212}
+  - {fileID: 114718999465198254}
+  - {fileID: 114248452191111734}
+  - {fileID: 114220563813663880}
+  - {fileID: 114229602061211800}
+  - {fileID: 114239553137227800}
+  - {fileID: 114203054022626064}
+  - {fileID: 114826124690951276}
+  - {fileID: 114467030033134606}
+  - {fileID: 114734624380116298}
+  - {fileID: 114725585534371102}
+  - {fileID: 114363148243145466}
+  - {fileID: 114309041240366262}
+  - {fileID: 114678283108002256}
+  - {fileID: 114083749210378030}
+  - {fileID: 114067796936261546}
+  - {fileID: 114161136581584206}
+  - {fileID: 114327256318401756}
+  - {fileID: 114270328404175156}
+  - {fileID: 114986114373107534}
+  - {fileID: 114917344112764926}
+  - {fileID: 114108854081368842}
+  - {fileID: 114583201370421790}
+  - {fileID: 114971287087511970}
+  root: {fileID: 114124249408460442}
 --- !u!114 &114005465720191440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +99,53 @@ MonoBehaviour:
       _connectionType: 0
       _dynamic: 0
   _displayName: F
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114018686589268796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac93dbf4a3b447f4954ef26221bb4dce, type: 3}
+  m_Name: Ability Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -120, y: 120}
+  ports:
+    keys:
+    - exit
+    - enter
+    values:
+    - _fieldName: exit
+      _node: {fileID: 114018686589268796}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114043199386036464}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 114018686589268796}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: Ability B
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _purchased: 0
@@ -122,6 +201,250 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 0
+--- !u!114 &114043199386036464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 120}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114043199386036464}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114018686589268796}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114043199386036464}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114688965763048966}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114211201783742626}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114067522980019626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: 88}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114067522980019626}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114688965763048966}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114067522980019626}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114319517427177240}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: D
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114067796936261546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 968}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114067796936261546}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114083749210378030}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114067796936261546}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114270328404175156}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114083749210378030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 1128}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114083749210378030}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114678283108002256}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114083749210378030}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114067796936261546}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114161136581584206}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114327256318401756}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114108854081368842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 984, y: 1032}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114108854081368842}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114917344112764926}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114108854081368842}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114971287087511970}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
 --- !u!114 &114124249408460442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +470,15 @@ MonoBehaviour:
       connections:
       - fieldName: enter
         node: {fileID: 114131422640659694}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114018686589268796}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114678283108002256}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -193,6 +525,432 @@ MonoBehaviour:
       _connectionType: 0
       _dynamic: 0
   _displayName: Ability A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114161136581584206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 1128}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114161136581584206}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114083749210378030}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114161136581584206}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114986114373107534}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114203054022626064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 792}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114203054022626064}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114203054022626064}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114734624380116298}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114211201783742626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 264}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114211201783742626}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114043199386036464}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114211201783742626}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114985150984201968}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: C
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114220563813663880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac93dbf4a3b447f4954ef26221bb4dce, type: 3}
+  m_Name: Ability Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: 632}
+  ports:
+    keys:
+    - exit
+    - enter
+    values:
+    - _fieldName: exit
+      _node: {fileID: 114220563813663880}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114229602061211800}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114239553137227800}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114203054022626064}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 114220563813663880}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: Ability C
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114229602061211800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 472}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114229602061211800}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114229602061211800}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114826124690951276}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114239553137227800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 632}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114239553137227800}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114239553137227800}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114734624380116298}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114248452191111734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1448, y: 280}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114248452191111734}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114718999465198254}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114248452191111734}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114252126653325364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1000, y: 152}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114252126653325364}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114319517427177240}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114252126653325364}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114501818575021212}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114718999465198254}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: G
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114270328404175156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 536, y: 968}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114270328404175156}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114067796936261546}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114270328404175156}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _purchased: 0
@@ -292,6 +1050,147 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 0
+--- !u!114 &114309041240366262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1000, y: 600}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114309041240366262}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114363148243145466}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114309041240366262}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114319517427177240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: 152}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114319517427177240}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114067522980019626}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114985150984201968}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114319517427177240}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114252126653325364}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: F
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114327256318401756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 1288}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114327256318401756}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114083749210378030}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114327256318401756}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114986114373107534}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
 --- !u!114 &114337069699062508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +1247,56 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 0
+--- !u!114 &114363148243145466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: 600}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114363148243145466}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114467030033134606}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114725585534371102}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114363148243145466}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114309041240366262}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
 --- !u!114 &114462551905362396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +1344,53 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 0
+--- !u!114 &114467030033134606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: 472}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114467030033134606}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114826124690951276}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114467030033134606}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114363148243145466}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
 --- !u!114 &114480789418188422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +1438,50 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 0
+--- !u!114 &114501818575021212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1224, y: 104}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114501818575021212}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114252126653325364}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114501818575021212}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: H
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
 --- !u!114 &114561548194428882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +1527,53 @@ MonoBehaviour:
       _connectionType: 0
       _dynamic: 0
   _displayName: I
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114583201370421790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 984, y: 1208}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114583201370421790}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114917344112764926}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114583201370421790}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114971287087511970}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _purchased: 0
@@ -539,3 +1626,482 @@ MonoBehaviour:
   _purchased: 0
   _requiredLevel: 0
   _hideRequiredLevel: 1
+--- !u!114 &114678283108002256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac93dbf4a3b447f4954ef26221bb4dce, type: 3}
+  m_Name: Ability Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: 1128}
+  ports:
+    keys:
+    - exit
+    - enter
+    values:
+    - _fieldName: exit
+      _node: {fileID: 114678283108002256}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114083749210378030}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 114678283108002256}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: Ability C
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114688965763048966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 88}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114688965763048966}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114043199386036464}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114688965763048966}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114067522980019626}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: B
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114718999465198254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1224, y: 280}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114718999465198254}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114252126653325364}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114718999465198254}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114248452191111734}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: I
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114725585534371102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: 712}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114725585534371102}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114734624380116298}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114725585534371102}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114363148243145466}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114734624380116298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 712}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114734624380116298}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114239553137227800}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114203054022626064}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114734624380116298}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114725585534371102}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114826124690951276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 472}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114826124690951276}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114229602061211800}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114826124690951276}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114467030033134606}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114917344112764926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 760, y: 1128}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114917344112764926}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114986114373107534}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114917344112764926}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114108854081368842}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114583201370421790}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114971287087511970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1208, y: 1128}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114971287087511970}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114108854081368842}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114583201370421790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114971287087511970}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0
+--- !u!114 &114985150984201968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: 264}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114985150984201968}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114211201783742626}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114985150984201968}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114319517427177240}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: E
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 1
+--- !u!114 &114986114373107534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6736291c8e84648b34e68aa1975d479, type: 3}
+  m_Name: Skill Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 536, y: 1128}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114986114373107534}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114161136581584206}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114327256318401756}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114986114373107534}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114917344112764926}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  _displayName: A
+  _description: 
+  _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _purchased: 0
+  _requiredLevel: 0
+  _hideRequiredLevel: 0

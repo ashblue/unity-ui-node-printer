@@ -838,6 +838,7 @@ MonoBehaviour:
   _lockedGraphic: {fileID: 1093390167862513317}
   _button: {fileID: 4632933013349774861}
   childOutput: {fileID: 5344406962167172803}
+  childConnector: {fileID: 4723102895136647557}
   linkConnector: {fileID: 6575393864027418057}
   leftConnector: {fileID: 4903474639124554028}
   rightConnector: {fileID: 4948573195396562558}
