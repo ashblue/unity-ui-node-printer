@@ -27,10 +27,6 @@ namespace CleverCrow.UiNodeBuilder.ThirdParty.XNodes {
             }
         }
 
-        public List<ISkillNode> GetSortedChildren () {
-            return Children.OrderByDescending(child => child.Priority).ToList();
-        }
-
         public List<ISkillNode> Children {
             get {
                 var port = GetOutputPort("children");
@@ -41,6 +37,10 @@ namespace CleverCrow.UiNodeBuilder.ThirdParty.XNodes {
     
                 return list;
             }
+        }
+        
+        public List<ISkillNode> GetSortedChildren () {
+            return Children.OrderByDescending(child => child.Priority).ToList();
         }
     }
 }

@@ -862,7 +862,7 @@ MonoBehaviour:
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _priority: 10
   _hide: 0
-  _purchased: 0
+  _purchased: 1
   _requiredLevel: 0
 --- !u!114 &114229602061211800
 MonoBehaviour:
@@ -913,7 +913,7 @@ MonoBehaviour:
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _priority: 0
   _hide: 0
-  _purchased: 0
+  _purchased: 1
   _requiredLevel: 0
 --- !u!114 &114239553137227800
 MonoBehaviour:
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   _priority: 0
   _hide: 0
   _purchased: 0
-  _requiredLevel: 0
+  _requiredLevel: 5
 --- !u!114 &114431768226763926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _priority: 0
   _hide: 0
-  _purchased: 0
+  _purchased: 1
   _requiredLevel: 0
 --- !u!114 &114480789418188422
 MonoBehaviour:
@@ -2437,7 +2437,7 @@ MonoBehaviour:
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
   _priority: 0
   _hide: 0
-  _purchased: 0
+  _purchased: 1
   _requiredLevel: 0
 --- !u!114 &114838691806823718
 MonoBehaviour:
