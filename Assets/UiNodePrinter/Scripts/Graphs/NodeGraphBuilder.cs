@@ -74,6 +74,7 @@ namespace CleverCrow.UiNodeBuilder {
 
         private void RecursiveEndChildInjector (List<INode> children, INode end) {
             foreach (var child in children) {
+                if (child == end) continue;
                 if (child.Children.Count > 0) {
                     RecursiveEndChildInjector(child.Children, end);
                     continue;
