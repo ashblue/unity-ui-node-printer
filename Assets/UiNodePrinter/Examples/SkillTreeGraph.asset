@@ -56,6 +56,15 @@ MonoBehaviour:
   - {fileID: 114108854081368842}
   - {fileID: 114583201370421790}
   - {fileID: 114971287087511970}
+  - {fileID: 114139400477484304}
+  - {fileID: 114246186540339610}
+  - {fileID: 114455283512020386}
+  - {fileID: 114947260505807662}
+  - {fileID: 114431768226763926}
+  - {fileID: 114297108315545884}
+  - {fileID: 114822904523306696}
+  - {fileID: 114574866484467718}
+  - {fileID: 114838691806823718}
   root: {fileID: 114124249408460442}
 --- !u!114 &114005465720191440
 MonoBehaviour:
@@ -70,11 +79,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1032, y: -552}
+  position: {x: 1064, y: -808}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114005465720191440}
@@ -84,26 +93,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114337069699062508}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114246186540339610}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114005465720191440}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114561548194428882}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: F
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114018686589268796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,10 +130,10 @@ MonoBehaviour:
   position: {x: -120, y: 120}
   ports:
     keys:
-    - exit
+    - children
     - enter
     values:
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114018686589268796}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -132,7 +142,7 @@ MonoBehaviour:
         node: {fileID: 114043199386036464}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114018686589268796}
@@ -142,15 +152,19 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114124249408460442}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
   _displayName: Ability B
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 10
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114024494986210950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,11 +178,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: -312}
+  position: {x: 328, y: -632}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114024494986210950}
@@ -178,29 +192,30 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114607090687898322}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114607090687898322}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114024494986210950}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114302147504210888}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114307660461520664}
+        node: {fileID: 114139400477484304}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: B
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114043199386036464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +233,7 @@ MonoBehaviour:
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114043199386036464}
@@ -228,29 +243,30 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114018686589268796}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114018686589268796}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114043199386036464}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114688965763048966}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114211201783742626}
+        node: {fileID: 114455283512020386}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114067522980019626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,11 +280,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 88}
+  position: {x: 568, y: 56}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114067522980019626}
@@ -278,26 +294,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114688965763048966}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114688965763048966}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114067522980019626}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114319517427177240}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: D
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114067796936261546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,11 +328,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 312, y: 968}
+  position: {x: 312, y: 1336}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114067796936261546}
@@ -325,26 +342,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114083749210378030}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114574866484467718}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114067796936261546}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114270328404175156}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114083749210378030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,11 +376,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 88, y: 1128}
+  position: {x: 88, y: 1496}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114083749210378030}
@@ -375,29 +393,21 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114083749210378030}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114067796936261546}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114161136581584206}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114327256318401756}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114108854081368842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,11 +421,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 984, y: 1032}
+  position: {x: 1000, y: 1608}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114108854081368842}
@@ -425,26 +435,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114917344112764926}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114838691806823718}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114108854081368842}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114971287087511970}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114124249408460442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,24 +472,21 @@ MonoBehaviour:
   position: {x: -424, y: -72}
   ports:
     keys:
-    - exit
+    - children
     values:
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114124249408460442}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114131422640659694}
-        reroutePoints: []
-      - fieldName: enter
         node: {fileID: 114018686589268796}
         reroutePoints: []
       - fieldName: enter
-        node: {fileID: 114220563813663880}
+        node: {fileID: 114131422640659694}
         reroutePoints: []
       - fieldName: enter
-        node: {fileID: 114678283108002256}
+        node: {fileID: 114220563813663880}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -496,13 +504,13 @@ MonoBehaviour:
   m_Name: Ability Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -120, y: -312}
+  position: {x: -120, y: -632}
   ports:
     keys:
-    - exit
+    - children
     - enter
     values:
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114131422640659694}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -511,7 +519,7 @@ MonoBehaviour:
         node: {fileID: 114607090687898322}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114131422640659694}
@@ -521,15 +529,78 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114124249408460442}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
   _displayName: Ability A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 20
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
+--- !u!114 &114139400477484304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: -888}
+  ports:
+    keys:
+    - enter
+    - exit
+    - children
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114139400477484304}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114024494986210950}
+        reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114024494986210950}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114139400477484304}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114337069699062508}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114139400477484304}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114302147504210888}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114307660461520664}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
 --- !u!114 &114161136581584206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,11 +614,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 312, y: 1128}
+  position: {x: 312, y: 1624}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114161136581584206}
@@ -557,26 +628,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114083749210378030}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114822904523306696}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114161136581584206}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114986114373107534}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114203054022626064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,11 +662,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 792}
+  position: {x: 104, y: 1048}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114203054022626064}
@@ -604,26 +676,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114220563813663880}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114297108315545884}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114203054022626064}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114734624380116298}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114211201783742626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,11 +710,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 264}
+  position: {x: 344, y: 232}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114211201783742626}
@@ -651,10 +724,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114043199386036464}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114455283512020386}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114211201783742626}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -663,14 +739,15 @@ MonoBehaviour:
         node: {fileID: 114985150984201968}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: C
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114220563813663880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,28 +761,22 @@ MonoBehaviour:
   m_Name: Ability Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: 632}
+  position: {x: -136, y: 760}
   ports:
     keys:
-    - exit
+    - children
     - enter
     values:
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114220563813663880}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114229602061211800}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114239553137227800}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114203054022626064}
+        node: {fileID: 114431768226763926}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114220563813663880}
@@ -715,15 +786,19 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114124249408460442}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114124249408460442}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
   _displayName: Ability C
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 10
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114229602061211800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,11 +812,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 472}
+  position: {x: 104, y: 600}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114229602061211800}
@@ -751,10 +826,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114220563813663880}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114431768226763926}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114229602061211800}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -763,14 +841,15 @@ MonoBehaviour:
         node: {fileID: 114826124690951276}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114239553137227800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,11 +863,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 632}
+  position: {x: 104, y: 888}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114239553137227800}
@@ -798,26 +877,89 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114220563813663880}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114297108315545884}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114239553137227800}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114734624380116298}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
+--- !u!114 &114246186540339610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1048, y: -1000}
+  ports:
+    keys:
+    - enter
+    - exit
+    - children
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114246186540339610}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114337069699062508}
+        reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114337069699062508}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114246186540339610}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114561548194428882}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114246186540339610}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114005465720191440}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114480789418188422}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114462551905362396}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
 --- !u!114 &114248452191111734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,37 +973,38 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: 280}
+  position: {x: 1560, y: 248}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114248452191111734}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
+      - fieldName: children
         node: {fileID: 114718999465198254}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114248452191111734}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
-  _displayName: A
+  _displayName: J
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114252126653325364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,11 +1018,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: 152}
+  position: {x: 1048, y: 136}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114252126653325364}
@@ -889,29 +1032,30 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114319517427177240}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114319517427177240}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114252126653325364}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114501818575021212}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114718999465198254}
+        node: {fileID: 114947260505807662}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: G
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114270328404175156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,11 +1069,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 536, y: 968}
+  position: {x: 536, y: 1336}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114270328404175156}
@@ -942,20 +1086,77 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114270328404175156}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
+--- !u!114 &114297108315545884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 776}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114297108315545884}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: children
+        node: {fileID: 114431768226763926}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114297108315545884}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114239553137227800}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114203054022626064}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114297108315545884}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114734624380116298}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114302147504210888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,40 +1170,38 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: -440}
+  position: {x: 568, y: -712}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114302147504210888}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
-        node: {fileID: 114024494986210950}
+      - fieldName: children
+        node: {fileID: 114139400477484304}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114302147504210888}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114337069699062508}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: C
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114307660461520664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,40 +1215,38 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: -200}
+  position: {x: 568, y: -536}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114307660461520664}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
-        node: {fileID: 114024494986210950}
+      - fieldName: children
+        node: {fileID: 114139400477484304}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114307660461520664}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114337069699062508}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: D
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114309041240366262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,11 +1260,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: 600}
+  position: {x: 1000, y: 776}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114309041240366262}
@@ -1077,23 +1274,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114363148243145466}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114363148243145466}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114309041240366262}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114319517427177240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,11 +1308,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 776, y: 152}
+  position: {x: 808, y: 136}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114319517427177240}
@@ -1119,15 +1320,12 @@ MonoBehaviour:
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: exit
-        node: {fileID: 114067522980019626}
-        reroutePoints: []
-      - fieldName: exit
-        node: {fileID: 114985150984201968}
+        node: {fileID: 114455283512020386}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114319517427177240}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1136,14 +1334,15 @@ MonoBehaviour:
         node: {fileID: 114252126653325364}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: F
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114327256318401756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,11 +1356,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 312, y: 1288}
+  position: {x: 312, y: 1784}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114327256318401756}
@@ -1171,26 +1370,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114083749210378030}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114822904523306696}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114327256318401756}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114986114373107534}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114337069699062508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,11 +1404,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 808, y: -312}
+  position: {x: 808, y: -616}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114337069699062508}
@@ -1221,32 +1421,30 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114307660461520664}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114139400477484304}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114337069699062508}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114005465720191440}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114480789418188422}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114462551905362396}
+        node: {fileID: 114246186540339610}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: E
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114363148243145466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,11 +1458,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 776, y: 600}
+  position: {x: 776, y: 776}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114363148243145466}
@@ -1277,10 +1475,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114725585534371102}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114431768226763926}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114363148243145466}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1289,14 +1490,133 @@ MonoBehaviour:
         node: {fileID: 114309041240366262}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
+--- !u!114 &114431768226763926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 488}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114431768226763926}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114220563813663880}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114431768226763926}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114229602061211800}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114297108315545884}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114431768226763926}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114363148243145466}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
+--- !u!114 &114455283512020386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -56}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114455283512020386}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114043199386036464}
+        reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114043199386036464}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114455283512020386}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114688965763048966}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114211201783742626}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114455283512020386}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114319517427177240}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114462551905362396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,11 +1630,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1032, y: -72}
+  position: {x: 1064, y: -456}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114462551905362396}
@@ -1324,26 +1644,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114337069699062508}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114246186540339610}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114462551905362396}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114561548194428882}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: H
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114467030033134606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,11 +1678,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 472}
+  position: {x: 552, y: 600}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114467030033134606}
@@ -1371,26 +1692,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114826124690951276}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114826124690951276}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114467030033134606}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114363148243145466}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114480789418188422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,11 +1726,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1032, y: -312}
+  position: {x: 1064, y: -632}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114480789418188422}
@@ -1418,26 +1740,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114337069699062508}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114246186540339610}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114480789418188422}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114561548194428882}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: G
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114501818575021212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,11 +1774,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1224, y: 104}
+  position: {x: 1320, y: 72}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114501818575021212}
@@ -1465,23 +1788,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114252126653325364}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114947260505807662}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114501818575021212}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: H
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114561548194428882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,11 +1822,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1256, y: -312}
+  position: {x: 1304, y: -632}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114561548194428882}
@@ -1515,23 +1842,80 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114462551905362396}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114246186540339610}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114561548194428882}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: I
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
+--- !u!114 &114574866484467718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 1224}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114574866484467718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114083749210378030}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114574866484467718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114067796936261546}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114822904523306696}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114574866484467718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114583201370421790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,11 +1929,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 984, y: 1208}
+  position: {x: 1000, y: 1784}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114583201370421790}
@@ -1559,26 +1943,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114917344112764926}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114838691806823718}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114583201370421790}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114971287087511970}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114607090687898322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,11 +1977,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: -312}
+  position: {x: 104, y: -632}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114607090687898322}
@@ -1606,10 +1991,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114131422640659694}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114131422640659694}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114607090687898322}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1618,14 +2006,15 @@ MonoBehaviour:
         node: {fileID: 114024494986210950}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114678283108002256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,22 +2028,19 @@ MonoBehaviour:
   m_Name: Ability Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: 1128}
+  position: {x: -136, y: 1496}
   ports:
     keys:
-    - exit
+    - children
     - enter
     values:
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114678283108002256}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114083749210378030}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114678283108002256}
@@ -1670,9 +2056,10 @@ MonoBehaviour:
   _displayName: Ability C
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114688965763048966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,24 +2073,24 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 88}
+  position: {x: 344, y: 56}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114688965763048966}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
-        node: {fileID: 114043199386036464}
+      - fieldName: children
+        node: {fileID: 114455283512020386}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114688965763048966}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1712,14 +2099,15 @@ MonoBehaviour:
         node: {fileID: 114067522980019626}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: B
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114718999465198254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,11 +2121,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1224, y: 280}
+  position: {x: 1320, y: 248}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114718999465198254}
@@ -1747,10 +2135,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114252126653325364}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114947260505807662}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114718999465198254}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1759,14 +2150,15 @@ MonoBehaviour:
         node: {fileID: 114248452191111734}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: I
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114725585534371102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,11 +2172,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 712}
+  position: {x: 552, y: 968}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114725585534371102}
@@ -1794,26 +2186,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114734624380116298}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114734624380116298}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114725585534371102}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114363148243145466}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114734624380116298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,11 +2220,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 712}
+  position: {x: 328, y: 968}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114734624380116298}
@@ -1839,15 +2232,12 @@ MonoBehaviour:
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: exit
-        node: {fileID: 114239553137227800}
-        reroutePoints: []
-      - fieldName: exit
-        node: {fileID: 114203054022626064}
+        node: {fileID: 114297108315545884}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114734624380116298}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1856,14 +2246,68 @@ MonoBehaviour:
         node: {fileID: 114725585534371102}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
+--- !u!114 &114822904523306696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 1512}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114822904523306696}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: children
+        node: {fileID: 114574866484467718}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114822904523306696}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114161136581584206}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114327256318401756}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114822904523306696}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114826124690951276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,11 +2321,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 472}
+  position: {x: 328, y: 600}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114826124690951276}
@@ -1891,10 +2335,13 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114229602061211800}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114229602061211800}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114826124690951276}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1903,14 +2350,68 @@ MonoBehaviour:
         node: {fileID: 114467030033134606}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
+--- !u!114 &114838691806823718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1000, y: 1496}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114838691806823718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114917344112764926}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114838691806823718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114108854081368842}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114583201370421790}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114838691806823718}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114917344112764926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,11 +2425,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 760, y: 1128}
+  position: {x: 760, y: 1704}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114917344112764926}
@@ -1941,26 +2442,77 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114917344112764926}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114108854081368842}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114583201370421790}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
+--- !u!114 &114947260505807662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21284fb618ff43e2a54b5e37c58e021, type: 3}
+  m_Name: Skill Node Group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1320, y: -56}
+  ports:
+    keys:
+    - enter
+    - children
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114947260505807662}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114252126653325364}
+        reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114252126653325364}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: children
+      _node: {fileID: 114947260505807662}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114501818575021212}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114718999465198254}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114947260505807662}
+      _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _dynamic: 0
 --- !u!114 &114971287087511970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,11 +2526,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1208, y: 1128}
+  position: {x: 1224, y: 1704}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114971287087511970}
@@ -1991,23 +2543,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114583201370421790}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114838691806823718}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114971287087511970}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0
 --- !u!114 &114985150984201968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,11 +2577,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 264}
+  position: {x: 568, y: 232}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114985150984201968}
@@ -2035,26 +2591,27 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114211201783742626}
         reroutePoints: []
+      - fieldName: children
+        node: {fileID: 114211201783742626}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114985150984201968}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114319517427177240}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: E
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 1
 --- !u!114 &114986114373107534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,11 +2625,11 @@ MonoBehaviour:
   m_Name: Skill Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 536, y: 1128}
+  position: {x: 536, y: 1704}
   ports:
     keys:
     - enter
-    - exit
+    - children
     values:
     - _fieldName: enter
       _node: {fileID: 114986114373107534}
@@ -2085,23 +2642,24 @@ MonoBehaviour:
       - fieldName: exit
         node: {fileID: 114327256318401756}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114822904523306696}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
-    - _fieldName: exit
+    - _fieldName: children
       _node: {fileID: 114986114373107534}
       _typeQualifiedName: CleverCrow.UiNodeBuilder.ThirdParty.XNodes.SkillNodeBase+Connection,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114917344112764926}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _dynamic: 0
   _displayName: A
   _description: 
   _graphic: {fileID: 21300000, guid: 184b7a30852644410b46b1e459ba5a70, type: 3}
+  _priority: 0
+  _hide: 0
   _purchased: 0
   _requiredLevel: 0
-  _hideRequiredLevel: 0

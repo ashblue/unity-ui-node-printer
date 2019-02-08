@@ -16,11 +16,14 @@ namespace CleverCrow.UiNodeBuilder {
         public bool IsEnabled { get; private set; }
         public bool IsPurchased { get; private set; }
 
+        public bool IsGroup { get; set; }
         public UnityEvent<INode> OnClick { get; } = new UnityEventNode();
         public UnityEvent OnPurchase { get; } = new UnityEvent();
         public UnityEvent OnDisable { get; } = new UnityEvent();
         public UnityEvent OnEnable { get; } = new UnityEvent();
         public UnityEvent OnRefund { get; } = new UnityEvent();
+        public INode ExitChild { get; set; }
+        public bool IsGroupExit { get; set; }
         public NodeType NodeType { get; set; }
         public List<INode> Parents { get; } = new List<INode>();
         public bool IsRoot { get; set; }
@@ -47,9 +50,9 @@ namespace CleverCrow.UiNodeBuilder {
 
         public void Enable () {
             if (IsLocked) return;
-
+            
             IsEnabled = true;
-            if (IsPurchased) {
+            if (IsPurchased || IsGroup) {
                 Children.ForEach(child => child.Enable());
             }
             
@@ -57,7 +60,7 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         public void Refund () {
-            if (!IsPurchased) return;
+            if (!IsPurchased && !IsGroup) return;
 
             IsPurchased = false;
             Children.ForEach(child => {

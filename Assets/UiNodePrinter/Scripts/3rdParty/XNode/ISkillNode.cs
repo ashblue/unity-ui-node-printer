@@ -6,12 +6,17 @@ namespace CleverCrow.UiNodeBuilder.ThirdParty.XNodes {
         string DisplayName { get; }
         string Description { get; }
         Sprite Graphic { get; }
+        int Priority { get; }
         
         NodeType NodeType { get; }
         List<ISkillNode> Children { get; }
         
-        bool Purchased { get; }
+        bool IsPurchased { get; }
+        bool IsGroup { get; }
         int RequiredLevel { get; }
-        bool HideRequiredLevel { get; }
+        bool Hide { get; }
+        ISkillNode GroupEnd { get; }
+
+        List<ISkillNode> GetSortedChildren ();
     }
 }

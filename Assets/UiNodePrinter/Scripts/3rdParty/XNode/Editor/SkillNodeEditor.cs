@@ -11,7 +11,7 @@ namespace CleverCrow.UiNodeBuilder.ThirdParty.XNodes.Editors {
             var image = serializedObject.FindProperty("_graphic").objectReferenceValue as Sprite;
             GUILayout.Box(image.texture, GUILayout.Width(50), GUILayout.Height(50));
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("exit"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("children"));
         }
     }
 }

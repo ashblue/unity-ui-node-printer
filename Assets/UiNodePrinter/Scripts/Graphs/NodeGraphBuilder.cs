@@ -37,18 +37,9 @@ namespace CleverCrow.UiNodeBuilder {
 
             return this;
         }
-        
-        public NodeGraphBuilder AddExistingNode (INode node) {
-            _graph.AddNode(Pointer.Peek(), node);
-            node.Parents.Add(Current);
-            
-            return this;
-        }
 
-        public NodeGraphBuilder Add (string name, string description, Sprite graphic) {
-            Add(name, graphic);
-            Current.Description = description;
-            
+        public NodeGraphBuilder Description (string text) {
+            Current.Description = text;
             return this;
         }
 
@@ -65,6 +56,31 @@ namespace CleverCrow.UiNodeBuilder {
         public NodeGraphBuilder End () {
             _pointer.Pop();
             return this;
+        }
+
+        public NodeGraphBuilder EndGroup (string name, Sprite graphic) {
+            var group = _pointer.Pop();
+            
+            Add(name, graphic);
+            group.ExitChild = Current;
+            Current.Parents[0].Children.Remove(Current);
+            Current.IsGroupExit = true;
+            Current.Parents.Clear();
+            Current.Parents.Add(group);
+            RecursiveEndChildInjector(group.Children, Current);
+            
+            return this;
+        }
+
+        private void RecursiveEndChildInjector (List<INode> children, INode end) {
+            foreach (var child in children) {
+                if (child.Children.Count > 0) {
+                    RecursiveEndChildInjector(child.Children, end);
+                    continue;
+                }
+                
+                child.Children.Add(end);
+            }
         }
 
         public NodeGraphBuilder Purchased (bool purchase) {
@@ -96,6 +112,24 @@ namespace CleverCrow.UiNodeBuilder {
 
         public NodeGraphBuilder NodeType (NodeType type) {
             Current.NodeType = type;
+            return this;
+        }
+
+        public NodeGraphBuilder AddGroup () {
+            var parent = Current;
+            var node = new Node {
+                IsGroup = true,
+            };
+
+            node.Parents.Add(parent);
+            if (parent.IsPurchased) {
+                node.Enable();
+            }
+            
+            _graph.AddNode(Pointer.Peek(), node);
+            _graph.Nodes.Add(node);
+            _pointer.Push(node);
+
             return this;
         }
     }

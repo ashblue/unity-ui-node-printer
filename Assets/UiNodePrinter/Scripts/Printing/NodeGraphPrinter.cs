@@ -5,9 +5,6 @@ using UnityEngine;
 
 namespace CleverCrow.UiNodeBuilder {
     public class NodeGraphPrinter : MonoBehaviour {
-        private List<NodePrint> _nodes = new List<NodePrint>();
-        private HashSet<INode> _printedNodes = new HashSet<INode>();
-
         [Tooltip("Where nodes will be output in a Canvas")]
         [SerializeField]
         private RectTransform _nodeOutput;
@@ -18,31 +15,31 @@ namespace CleverCrow.UiNodeBuilder {
         [SerializeField]
         private NodePrint _nodeAbilityPrefab;
 
+        [SerializeField]
+        private NodeGroupPrint _nodeGroupPrefab;
+
         public void Build (NodeGraph graph) {
             foreach (var child in graph.Root.Children) {
                 RecursivePrint(child, _nodeOutput);
             }
-
-            StartCoroutine(PostProcess());
-        }
-
-        private IEnumerator PostProcess () {
-            yield return null;
-            
-            foreach (var node in _nodes) {
-                node.OnGraphComplete();
-            }
         }
 
         private void RecursivePrint (INode data, RectTransform output) {
-            if (_printedNodes.Contains(data)) return;
+            if (data.IsGroup) {
+                var group = Instantiate(_nodeGroupPrefab, output);
+                data.Children.ForEach(child => RecursivePrint(child, group.childOutput));
+                if (data.ExitChild != null) RecursivePrint(data.ExitChild, group.exitOutput);
+                return;
+            }
             
             var node = Instantiate(GetPrefab(data), output);
             node.Setup(data);
-            _printedNodes.Add(data);
-            _nodes.Add(node);
             
-            data.Children.ForEach(child => RecursivePrint(child, node.childOutput));
+            data.Children.ForEach(child => {
+                if (!child.IsGroupExit) {
+                    RecursivePrint(child, node.childOutput);
+                }
+            });
         }
 
         private NodePrint GetPrefab (INode data) {

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 namespace CleverCrow.UiNodeBuilder {
     public class ExampleGraphPrint : MonoBehaviour {
         private NodeGraph _graph;
-        private Dictionary<ISkillNode, INode> _dataToNode = new Dictionary<ISkillNode, INode>();
         
         public NodeGraphPrinter printer;
         public SkillTreeGraph data;
@@ -22,7 +21,7 @@ namespace CleverCrow.UiNodeBuilder {
 
         private void Start () {
             var graphBuilder = new NodeGraphBuilder();
-            data.root.Children.ForEach(child => NodeRecursiveAdd(graphBuilder, child));
+            data.root.GetSortedChildren().ForEach(child => NodeRecursiveAdd(graphBuilder, child));
 
             _graph = graphBuilder.Build();
             printer.Build(_graph);
@@ -31,25 +30,38 @@ namespace CleverCrow.UiNodeBuilder {
         }
 
         private void NodeRecursiveAdd (NodeGraphBuilder builder, ISkillNode data) {
-            if (currentLevel < data.RequiredLevel && data.HideRequiredLevel) return;
+            if (data.Hide) return;
 
-            if (_dataToNode.ContainsKey(data)) {
-                builder.AddExistingNode(_dataToNode[data]);
-            } else {
-                builder.Add(data.DisplayName, data.Description, data.Graphic)
-                    .NodeType(data.NodeType)
-                    .Purchased(data.Purchased)
-                    .IsPurchasable(() => IsPurchasable(data))
-                    .OnPurchase(() => { ChangePoints(data, -1); })
-                    .OnRefund(() => { ChangePoints(data, 1); })
-                    .IsLocked(() => currentLevel < data.RequiredLevel)
-                    .LockedDescription(() => $"Level {data.RequiredLevel} is required.")
-                    .OnClickNode((node) => context.Open(node));
+            if (data.IsGroup) {
+                builder.AddGroup();
+                data.GetSortedChildren().ForEach(child => NodeRecursiveAdd(builder, child));
+
+                if (data.GroupEnd != null) {
+                    builder.EndGroup(data.GroupEnd.DisplayName, data.GroupEnd.Graphic);
+                    SetNodeDetails(builder, data.GroupEnd);
+                    data.GroupEnd.GetSortedChildren().ForEach(child => NodeRecursiveAdd(builder, child));
+                } 
                 
-                _dataToNode[data] = builder.Current;
-                data.Children.ForEach(child => NodeRecursiveAdd(builder, child));
+                builder.End();
+            } else {
+                builder.Add(data.DisplayName, data.Graphic);
+                SetNodeDetails(builder, data);
+                
+                data.GetSortedChildren().ForEach(child => NodeRecursiveAdd(builder, child));
                 builder.End();
             }
+        }
+
+        private void SetNodeDetails (NodeGraphBuilder builder, ISkillNode data) {
+            builder.Description(data.Description)
+                .NodeType(data.NodeType)
+                .Purchased(data.IsPurchased)
+                .IsPurchasable(() => IsPurchasable(data))
+                .OnPurchase(() => { ChangePoints(data, -1); })
+                .OnRefund(() => { ChangePoints(data, 1); })
+                .IsLocked(() => currentLevel < data.RequiredLevel)
+                .LockedDescription(() => $"Level {data.RequiredLevel} is required.")
+                .OnClickNode((node) => context.Open(node));
         }
 
         private void ChangePoints (ISkillNode data, int amount) {

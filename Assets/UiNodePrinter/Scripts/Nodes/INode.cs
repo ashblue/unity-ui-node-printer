@@ -17,6 +17,7 @@ namespace CleverCrow.UiNodeBuilder {
         bool IsPurchasable { get; }
         bool IsLocked { get; }
         bool IsRoot { get; set; }
+        bool IsGroup { get; }
 
         UnityEvent<INode> OnClick { get; }
         UnityEvent OnPurchase { get; }
@@ -25,6 +26,8 @@ namespace CleverCrow.UiNodeBuilder {
         Func<bool> OnIsPurchasable { set; }
         Func<bool> OnIsLocked { set; }
         UnityEvent OnRefund { get; }
+        INode ExitChild { get; set; }
+        bool IsGroupExit { get; set; }
 
 
         void AddChild (INode node);

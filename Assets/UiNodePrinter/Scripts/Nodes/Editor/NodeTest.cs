@@ -119,7 +119,7 @@ namespace CleverCrow.UiNodeBuilder.Editors {
             
             [Test]
             public void It_should_not_set_IsEnabled_if_IsLocked_is_set () {
-                _node.OnIsLocked = () => false;
+                _node.OnIsLocked = () => true;
                 _node.Enable();
 
                 Assert.IsFalse(_node.IsEnabled);

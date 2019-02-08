@@ -36,13 +36,6 @@ namespace CleverCrow.UiNodeBuilder {
         public void Setup (INode node) {
             _startingHeight = _rect.sizeDelta.y;
             
-            if (node.Parents.Count > 1) {
-                var size = linkConnector.sizeDelta;
-                size = new Vector2(size.x, size.y * (node.Parents.Count - 1));
-                linkConnector.sizeDelta = size;
-                linkConnector.gameObject.SetActive(true);
-            }
-            
             _name.text = node.Name;
             _graphic.sprite = node.Graphic;
             _button.onClick.AddListener(() => node.OnClick.Invoke(node));

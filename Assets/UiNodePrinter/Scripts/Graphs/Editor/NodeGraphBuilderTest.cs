@@ -171,5 +171,57 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 Assert.AreEqual(graph.Root.Children[0].GetLockedDescription(), text);
             }
         }
+
+        public class AddGroupMethod : NodeGraphBuilderTest {
+            [Test]
+            public void It_should_add_a_Group () {
+                var graph = _builder
+                    .AddGroup()
+                    .Build();
+                
+                Assert.IsTrue(graph.Root.Children[0].IsGroup);
+            }
+
+            [Test]
+            public void It_should_add_children_to_the_group () {
+                var graph = _builder
+                    .AddGroup()
+                        .Add("a", _graphic)
+                        .End()
+                    .End()
+                    .Build();
+                
+                Assert.AreEqual(graph.Root.Children[0].Children[0].Name, "a");
+            }
+
+            [Test]
+            public void It_should_add_the_passed_node_to_all_children_when_EndGroup_is_called_on_a_group () {
+                var graph = _builder
+                    .AddGroup()
+                        .Add("a", _graphic)
+                        .End()
+                        .Add("b", _graphic)
+                        .End()
+                    .EndGroup("exit", _graphic)
+                    .Build();
+                
+                Assert.AreEqual(graph.Root.Children[0].Children[0].Children[0].Name, "exit");
+                Assert.AreEqual(graph.Root.Children[0].Children[0].Children[0].Name, "exit");
+            }
+
+            [Test]
+            public void EndGroup_node_becomes_the_current_pointer () {
+                _builder
+                    .AddGroup()
+                        .Add("a", _graphic)
+                        .End()
+                        .Add("b", _graphic)
+                        .End()
+                    .EndGroup("exit", _graphic)
+                    .Build();
+                
+                Assert.AreEqual(_builder.Current.Name, "exit");
+            }
+        }
     }
 }
