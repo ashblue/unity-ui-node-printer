@@ -27,6 +27,7 @@ namespace CleverCrow.UiNodeBuilder {
         private void RecursivePrint (INode data, RectTransform output) {
             if (data.IsGroup) {
                 var group = Instantiate(_nodeGroupPrefab, output);
+                group.Setup(data);
                 data.Children.ForEach(child => RecursivePrint(child, group.childOutput));
                 if (data.ExitChild != null) RecursivePrint(data.ExitChild, group.exitOutput);
                 return;

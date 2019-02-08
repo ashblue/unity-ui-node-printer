@@ -247,6 +247,49 @@ namespace CleverCrow.UiNodeBuilder.Editors {
                 
                 Assert.AreEqual(0, _builder.Current.Children.Count);
             }
+            
+            [Test]
+            public void Nested_group_exit_should_have_the_correct_number_of_children_at_three_nesting () {
+                _builder
+                    .AddGroup()
+                        .Add("a", _graphic)
+                            .Add("c", _graphic)
+                                .Add("d", _graphic)
+                                .End()
+                            .End()
+                        .End()
+                        .AddGroup()
+                            .Add("b", _graphic)
+                            .End()
+                            .Add("z", _graphic)
+                            .End()
+                        .EndGroup("dr", _graphic)
+                            .Add("e", _graphic)
+                            .End()
+                        .End()
+                        .AddGroup()
+                            .Add("b", _graphic)
+                            .End()
+                            .Add("z", _graphic)
+                            .End()
+                        .EndGroup("dr", _graphic)
+                            .Add("e", _graphic)
+                            .End()
+                        .End()
+                        .AddGroup()
+                            .Add("b", _graphic)
+                            .End()
+                            .Add("z", _graphic)
+                            .End()
+                        .EndGroup("dr", _graphic)
+                            .Add("e", _graphic)
+                            .End()
+                        .End()
+                    .EndGroup("exit", _graphic)
+                    .Build();
+                
+                Assert.AreEqual(0, _builder.Current.Children.Count);
+            }
         }
     }
 }
